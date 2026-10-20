@@ -6,7 +6,11 @@
       <p class="sobretitulo sobretitulo-claro">Sobre</p>
       <h1>{{ site.nome_publico }}</h1>
       <p class="sobre-id">{{ site.profissao }} · {{ site.crm }}{% for r in site.rqe %} · RQE {{ r.numero }} ({{ r.titulo }}){% endfor %}</p>
+      {% if sobre_ok and sobre.apresentacao %}
+      <p class="cabeca-lead">{{ sobre.apresentacao }}</p>
+      {% else %}
       <p class="cabeca-lead">Sou João Brígido, médico. Este portal reúne conteúdos que preparo para tornar assuntos médicos mais compreensíveis e ajudar o leitor a formular perguntas melhores sobre sua saúde.</p>
+      {% endif %}
     </div>
     {% if site.foto %}
     <img class="sobre-foto" src="{{ u(site.foto) }}" alt="Retrato de João Brígido" width="480" height="600">
@@ -18,6 +22,9 @@
 
 <div class="faixa pagina-corpo">
   <div class="prosa">
+    {% if revisao and sobre and not sobre.aprovado %}
+    <p class="pendente">Rascunho para aprovação: a apresentação, o ensino, a formação, as sociedades e a pesquisa desta página saem do Doc Currículo · João Brígido (base Lattes) e só vão ao site público depois do seu "aprovo". Até lá, o site mostra a versão curta, sem formação.</p>
+    {% endif %}
     <h2>Por que este portal existe</h2>
     <p>Uma percepção orienta o meu trabalho: muitas vezes, a dor mais incapacitante não aparece em nenhum exame. Explicar com clareza o que se sabe, e também o que ainda não se sabe, é uma forma de levar essa dor a sério.</p>
     <p>Os textos da Biblioteca são escritos para quem não tem formação médica. Eles não fazem diagnóstico nem indicam tratamento individual; ajudam a entender um assunto e a chegar a uma consulta com perguntas mais claras.</p>
@@ -25,19 +32,49 @@
     <h2>Temas</h2>
     <p>Os conteúdos estão organizados em três temas: psiquiatria e saúde mental, dor, e ortopedia e traumatologia. A saúde mental vem primeiro, e a relação entre os três aparece sempre que ajuda a compreender o sofrimento de alguém.</p>
 
-    <h2>Ensino</h2>
-    <p>Também preparo aulas e materiais didáticos para estudantes e médicos, com a mesma preocupação que orienta este portal: transformar assunto difícil em explicação compreensível.</p>
-
-    <h2>Origem</h2>
-    <p>Nasci em Fortaleza, no Ceará, e vivo em Niterói, onde atendo em consultório.</p>
-
-    {% if site.formacao %}
+    {% if sobre_ok and sobre.formacao %}
+    <h2>Formação</h2>
+    <ul class="sobre-lista">
+      {% for f in sobre.formacao %}
+      <li><strong>{{ f.titulo }}</strong>{% if f.local %} · {{ f.local }}{% endif %}{% if f.periodo %} · {{ f.periodo }}{% endif %}{% if revisao and f.confirmar %} <span class="pendente-inline">[A CONFIRMAR] {{ f.confirmar }}</span>{% endif %}{% if f.nota %}<span class="sobre-nota">{{ f.nota }}</span>{% endif %}</li>
+      {% endfor %}
+    </ul>
+    {% if sobre.sociedades %}
+    <h2>Sociedades</h2>
+    <ul class="sobre-lista">{% for x in sobre.sociedades %}<li>{{ x }}</li>{% endfor %}</ul>
+    {% endif %}
+    {% if sobre.pesquisa %}
+    <h2>Pesquisa e apresentações</h2>
+    <ul class="sobre-lista">{% for x in sobre.pesquisa %}<li>{{ x }}</li>{% endfor %}</ul>
+    {% endif %}
+    {% if sobre.lattes and sobre.lattes_ok %}
+    <p>A lista completa está no <a href="{{ sobre.lattes }}">Currículo Lattes</a>.</p>
+    {% elif revisao and sobre.lattes %}
+    <p class="pendente">[A CONFIRMAR] O link para o Currículo Lattes entra quando o Lattes for atualizado. Hoje ele está parado em 02/2023, sem a residência de Psiquiatria e com o mestrado "em andamento".</p>
+    {% endif %}
+    {% if revisao and sobre.pendencias and not sobre.aprovado %}
+    <div class="pendente">
+      <p><strong>Para esta página ir ao site público</strong></p>
+      <ul>{% for p in sobre.pendencias %}<li>{{ p }}</li>{% endfor %}</ul>
+    </div>
+    {% endif %}
+    {% elif site.formacao %}
     <h2>Formação</h2>
     <ul>{% for f in site.formacao %}<li>{{ f }}</li>{% endfor %}</ul>
     {% elif revisao %}
     <h2>Formação</h2>
     <p class="pendente">[A CONFIRMAR] Formação, instituições, títulos e vínculos entram aqui só depois de conferidos e autorizados. Até lá, esta seção não aparece no site público.</p>
     {% endif %}
+    <h2>Ensino</h2>
+    {% if sobre_ok and sobre.ensino %}
+    <p>{{ sobre.ensino }}</p>
+    {% else %}
+    <p>Também preparo aulas e materiais didáticos para estudantes e médicos, com a mesma preocupação que orienta este portal: transformar assunto difícil em explicação compreensível.</p>
+    {% endif %}
+
+    <h2>Origem</h2>
+    <p>Nasci em Fortaleza, no Ceará, e vivo em Niterói, onde atendo em consultório.</p>
+
 
     <p class="sobre-fecho">O objetivo deste portal é compartilhar informação médica com clareza, indicar os limites do conhecimento disponível e facilitar o acesso às informações sobre meu trabalho.</p>
   </div>

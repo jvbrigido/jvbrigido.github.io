@@ -63,6 +63,38 @@ como_trabalho:
     - titulo: "Plano combinado com você"
       texto: "Cada decisão é explicada: exames, psicoterapia, outros profissionais e, quando necessário, medicamentos. O plano também é seu."
 
+# Página Sobre com o currículo (Doc "Currículo · João Brígido (base Lattes)", 00 - Base Compartilhada, v1.1 de 20/10/2026).
+# Só vai ao site público com o "aprovo" do João; até lá, o site mostra a versão curta, sem formação.
+# Regras do Guia Mestre (cap. Sobre): primeira pessoa na apresentação; dados acadêmicos em formulação objetiva;
+# formação em andamento descrita como tal; nada de "referência", "excelência" ou credencial estimada.
+sobre:
+  aprovado: false
+  apresentacao: "Sou João Brígido, médico especialista em Ortopedia e Traumatologia, com formação em cirurgia do pé e tornozelo e mestrado com pesquisa sobre a dor depois da cirurgia. Hoje faço o terceiro ano da residência em Psiquiatria. Este portal reúne conteúdos que preparo para tornar assuntos médicos mais compreensíveis e ajudar o leitor a formular perguntas melhores sobre sua saúde."
+  ensino: "Ensino desde 2020 em cursos preparatórios de ortopedia e para o Revalida e, desde 2022, de Medicina Preventiva para provas de residência médica. Também escrevo manuais e apostilas para esses cursos, com a mesma preocupação que orienta este portal: transformar assunto difícil em explicação compreensível."
+  formacao:
+    - {titulo: "Graduação em Medicina", local: "Universidade Federal da Paraíba (UFPB)", periodo: "2011 a 2016"}
+    - {titulo: "Residência médica em Ortopedia e Traumatologia", local: "Instituto Nacional de Traumatologia e Ortopedia (INTO)", periodo: "2017 a 2020"}
+    - {titulo: "Título de Especialista em Ortopedia e Traumatologia", local: "Associação Médica Brasileira (AMB)", periodo: "2021 · RQE 34510"}
+    - {titulo: "Fellowship em Cirurgia do Pé e Tornozelo", local: "INTO", periodo: "início em 2020"}
+    - {titulo: "Mestrado em Ciências do Sistema Musculoesquelético", local: "INTO", periodo: "", nota: "Pesquisa: analgesia preventiva na cirurgia do pé e tornozelo, para reduzir a dor depois da operação.", confirmar: "ano da defesa (está no certificado)"}
+    - {titulo: "Residência médica em Psiquiatria", local: "", periodo: "em andamento (3º ano), com término previsto para março de 2027"}
+  sociedades:
+    - "Membro titular da Sociedade Brasileira de Ortopedia e Traumatologia (SBOT), desde 2020"
+    - "Membro do Comitê de Dor da SBOT, desde 2021"
+    - "Membro da AO Trauma"
+  pesquisa:
+    - "Ensaio clínico randomizado sobre analgesia preventiva em cirurgias do pé e tornozelo, projeto do mestrado no INTO, apresentado no 53º Congresso Brasileiro de Ortopedia e Traumatologia (2021) e no 54º Congresso Anual da SBOT (2022)."
+    - "Apresentação “Controle da dor: analgesia preventiva funciona?”, em simpósio (2020)."
+    - "Dois pôsteres sobre autópsia psicológica no VI Congresso Brasileiro de Prevenção do Suicídio (2026)."
+    - "Quatro artigos em periódicos científicos (2015 e 2016) e dezesseis resumos em anais de congressos (2012 a 2021)."
+  lattes: "http://lattes.cnpq.br/7109917983988548"
+  lattes_ok: false   # o Lattes está parado em 02/2023 (sem a residência de Psiquiatria e com o mestrado "em andamento"); linkar só depois de atualizado
+  pendencias:
+    - "Retrato aprovado para o topo da página."
+    - "Ano da defesa do mestrado (está no certificado)."
+    - "Atualizar o Lattes (parado em 02/2023) para o link entrar na página."
+    - "Aprovar o texto em primeira pessoa e a lista de formação."
+
 # Motivos frequentes de consulta (o "anúncio" da página inicial, pedido em 20/10/2026).
 # Res. CFM 2.336/2023, art. 11, I: quem não é especialista não pode divulgar que trata doenças específicas.
 # Cada tema só aparece no site público quando um dos RQE da lista "rqe" estiver cadastrado acima.

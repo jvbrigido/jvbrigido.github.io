@@ -76,6 +76,8 @@ main:focus { outline: none; }
 .link-seta:hover { text-decoration: underline; text-underline-offset: .25em; }
 .pendente { border: 1.5px dashed var(--aviso-linha); background: var(--aviso-fundo); color: var(--aviso-texto); border-radius: 10px; padding: 12px 14px; font-size: 15px; }
 .selo-rascunho { display: inline-block; background: var(--rascunho-fundo); color: var(--rascunho-texto); border-radius: 999px; padding: 3px 10px; font-size: 12.5px; font-weight: 700; letter-spacing: .02em; }
+.sobre-lista li { margin-bottom: 10px; }
+.sobre-nota { display: block; margin-top: 2px; font-size: 15px; color: var(--texto-2); }
 .selo-estoque { display: inline-block; background: #E6F4EC; color: #155C36; border-radius: 999px; padding: 3px 10px; font-size: 12.5px; font-weight: 700; letter-spacing: .02em; }
 
 /* ---------- botões ---------- */

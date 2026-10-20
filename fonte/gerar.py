@@ -104,6 +104,8 @@ class Portal:
         self.anuncio = self.revisao or any(t["liberado"] and t.get("grupo") == "psiquiatria" for t in temas)
         self.consulta_ok = self.revisao or self.site["consulta"].get("aprovado", False)
         self.trabalho_ok = self.revisao or self.site["como_trabalho"].get("aprovado", False)
+        # página Sobre com o currículo: só no site público depois do "aprovo" do João
+        self.sobre_ok = self.revisao or self.site.get("sobre", {}).get("aprovado", False)
 
     # ---------- conteúdo ----------
     def carregar_artigos(self, pastas):
@@ -190,7 +192,8 @@ class Portal:
             noindex=self.revisao or not self.site.get("lancado"), whatsapp=self.whatsapp,
             esqueleto_artifact=self.revisao and caminho == "index.html", caminho=caminho,
             temas=self.temas, anuncio=self.anuncio, consulta=self.site["consulta"],
-            consulta_ok=self.consulta_ok, trabalho_ok=self.trabalho_ok, **ctx)
+            consulta_ok=self.consulta_ok, trabalho_ok=self.trabalho_ok,
+            sobre=self.site.get("sobre", {}), sobre_ok=self.sobre_ok, **ctx)
         destino = self.saida / caminho
         destino.parent.mkdir(parents=True, exist_ok=True)
         destino.write_text(html, encoding="utf-8")
