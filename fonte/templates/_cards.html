@@ -8,6 +8,7 @@
   <p class="card-resumo">{{ a.resumo }}</p>
   <p class="card-data">
     {% if a.status == 'rascunho' %}<span class="selo-rascunho">Rascunho para aprovação</span>
+    {% elif a.estoque %}<span class="selo-estoque">Aprovado · em estoque</span>
     {% elif a.revisado %}Revisado em {{ a.revisado_texto }}
     {% else %}Publicado em {{ a.publicado_texto }}{% endif %}
   </p>

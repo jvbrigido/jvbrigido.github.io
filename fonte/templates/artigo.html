@@ -19,6 +19,8 @@
         <span>Por {{ a.autor or site.nome_publico }}, {{ site.profissao|lower }}</span>
         {% if a.status == 'rascunho' %}
         <span class="selo-rascunho">Rascunho para aprovação · ainda não publicado</span>
+        {% elif a.estoque %}
+        <span class="selo-estoque">Aprovado{% if a.aprovado_texto %} em {{ a.aprovado_texto }}{% endif %} · em estoque, entra no site no lançamento</span>
         {% else %}
         <span>Publicado em <time datetime="{{ a.publicado }}">{{ a.publicado_texto }}</time></span>
         {% if a.revisado %}<span>Revisado em <time datetime="{{ a.revisado }}">{{ a.revisado_texto }}</time></span>{% endif %}

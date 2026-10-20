@@ -141,6 +141,9 @@ class Portal:
                     "aviso_topo": aviso_html,
                     "minutos": max(1, math.ceil(palavras / 200)),
                     "publicado_texto": data_extenso(meta.get("publicado")),
+                    # aprovado pelo João, mas guardado para o lançamento (estoque): fica fora do repositório público
+                    "estoque": status == "aprovado" and not meta.get("publicado"),
+                    "aprovado_texto": data_extenso(meta.get("aprovado")),
                     "revisado_texto": data_extenso(meta.get("revisado")),
                     "ordem": meta.get("ordem", 99),
                 }
