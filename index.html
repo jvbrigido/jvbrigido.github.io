@@ -3,12 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Dr. João Brígido, psiquiatra, médico da dor e ortopedista em Niterói, RJ. Mente e corpo não adoecem separados. Entenda o que você sente e marque sua consulta.">
+<meta name="description" content="Dr. João Brígido, psiquiatra, médico da dor e ortopedista em Icaraí, Niterói (RJ). Mente e corpo não adoecem separados. Entenda o que você sente e marque sua consulta.">
 <meta property="og:title" content="Dr. João Brígido · Psiquiatria e Dor">
 <meta property="og:description" content="Medicina para pessoas fortes que adoecem em silêncio. Psiquiatria, dor, ortopedia e traumatologia em Niterói, RJ.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://drjoaobrigido.com.br/">
 <meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://drjoaobrigido.com.br/img/og-consultorio.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Physician","name":"Dr. João Brígido","alternateName":"João Victor Costa Barreto Brígido","url":"https://drjoaobrigido.com.br/","image":"https://drjoaobrigido.com.br/img/og-consultorio.jpg","telephone":"+55-21-98146-2645","address":{"@type":"PostalAddress","streetAddress":"Rua Geraldo Martins, 70, sala 706 (Jardim Icaraí Offices)","addressLocality":"Niterói","addressRegion":"RJ","addressCountry":"BR"},"medicalSpecialty":["https://schema.org/Psychiatric","https://schema.org/Musculoskeletal"],"sameAs":["https://www.instagram.com/jvbrigido/"]}</script>
 <link rel="canonical" href="https://drjoaobrigido.com.br/">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
 <title>Dr. João Brígido</title>
@@ -184,6 +186,15 @@ section.block{padding-block:2.2rem 2.8rem}
 .post p{font-size:.96rem;color:var(--fg)}
 .post .chip{align-self:flex-start;margin-top:auto}
 
+/* consultório */
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}
+.gallery figure{margin:0;display:flex;flex-direction:column;gap:.45rem;min-width:0}
+.gallery img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:12px;border:1.5px solid var(--rule);background:var(--surface-2);display:block}
+.gallery figcaption{font-size:.9rem;color:var(--muted)}
+@media (max-width:640px){ .gallery{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:78%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:.4rem} .gallery figure{scroll-snap-align:start} }
+.addr{margin-top:1.2rem;display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;background:var(--surface);border:1.5px solid var(--rule);border-radius:14px;padding:1rem 1.2rem}
+.addr p{margin-top:.2rem}
+
 /* contato */
 .contato{background:var(--navy);color:var(--on-navy);border-top:3px solid var(--royal)}
 .contato .wrap{padding-block:2.4rem;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:1.8rem;align-items:center}
@@ -206,15 +217,15 @@ footer b{color:var(--fg)}
 </head>
 <body>
 
-<div class="ribbon"><div class="wrap"><strong>Protótipo v0.1 · 19/10/2026</strong><span>Tudo o que está tracejado é um espaço esperando seus dados: foto, número do WhatsApp, endereço, RQE. Os textos são a primeira calibragem do tom.</span></div></div>
+<div class="ribbon"><div class="wrap"><strong>Site em construção · versão 0.2</strong><span>Os itens tracejados ainda aguardam dados.</span></div></div>
 
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#inicio"><b>Dr. João Brígido</b><span>Psiquiatria e Dor</span></a>
     <nav class="nav" aria-label="Seções">
-      <a href="#quem">Quem é</a><a href="#cardapio">Cardápio clínico</a><a href="#blog">Blog</a><a href="#contato">Contato</a>
+      <a href="#quem">Quem é</a><a href="#cardapio">Cardápio clínico</a><a href="#consultorio">Consultório</a><a href="#blog">Blog</a><a href="#contato">Contato</a>
     </nav>
-    <a class="btn btn-cta btn-sm" href="#contato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8.4 18.9L4 20z"/><path d="M9.5 9.5c.3 1.8 1.9 3.6 3.8 4.2l1.3-1.1 1.9.9c-.2 1.3-1.1 1.9-2.3 1.7-2.7-.4-5.5-3.2-6-5.9-.2-1.2.4-2.1 1.7-2.3l.9 1.9-1.3.6z"/></svg><span>Marcar consulta</span></a>
+    <a class="btn btn-cta btn-sm" href="https://wa.me/5521981462645?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20marcar%20uma%20consulta%20com%20o%20Dr.%20Jo%C3%A3o%20Br%C3%ADgido." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8.4 18.9L4 20z"/><path d="M9.5 9.5c.3 1.8 1.9 3.6 3.8 4.2l1.3-1.1 1.9.9c-.2 1.3-1.1 1.9-2.3 1.7-2.7-.4-5.5-3.2-6-5.9-.2-1.2.4-2.1 1.7-2.3l.9 1.9-1.3.6z"/></svg><span>Marcar consulta</span></a>
   </div>
 </header>
 
@@ -225,12 +236,13 @@ footer b{color:var(--fg)}
       <h1>Mente e corpo não adoecem separados.</h1>
       <p class="lead">Medicina para pessoas fortes que adoecem em silêncio. Sou o João Brígido: psiquiatra, médico da dor e ortopedista. Aqui você entende o que sente, descobre quando procurar ajuda e marca uma consulta sem burocracia.</p>
       <div class="ctas">
-        <a class="btn btn-cta" href="#contato"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8.4 18.9L4 20z"/><path d="M9.5 9.5c.3 1.8 1.9 3.6 3.8 4.2l1.3-1.1 1.9.9c-.2 1.3-1.1 1.9-2.3 1.7-2.7-.4-5.5-3.2-6-5.9-.2-1.2.4-2.1 1.7-2.3l.9 1.9-1.3.6z"/></svg>Marcar consulta no WhatsApp</a>
+        <a class="btn btn-cta" href="https://wa.me/5521981462645?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20marcar%20uma%20consulta%20com%20o%20Dr.%20Jo%C3%A3o%20Br%C3%ADgido." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8.4 18.9L4 20z"/><path d="M9.5 9.5c.3 1.8 1.9 3.6 3.8 4.2l1.3-1.1 1.9.9c-.2 1.3-1.1 1.9-2.3 1.7-2.7-.4-5.5-3.2-6-5.9-.2-1.2.4-2.1 1.7-2.3l.9 1.9-1.3.6z"/></svg>Marcar consulta no WhatsApp</a>
         <a class="btn btn-ghost" href="https://www.instagram.com/jvbrigido/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".8" fill="currentColor"/></svg>Seguir @jvbrigido</a>
       </div>
       <div class="facts">
         <span><i></i>CRM 52-1088629 RJ</span>
-        <span><i></i>Consultório em Niterói <span class="chip pend">endereço a confirmar</span></span>
+        <span><i></i>Consultório em Icaraí, Niterói</span>
+        <span><i></i>Segundas e quintas à tarde</span>
         <span><i></i>Aulas e palestras para médicos</span>
       </div>
     </div>
@@ -255,15 +267,15 @@ footer b{color:var(--fg)}
 
     <div class="facet-panel" id="fp-psiq" data-f="psiq">
       <div><h3>O psiquiatra</h3><p>O que me levou à psiquiatria foi perceber que, muitas vezes, a dor mais incapacitante não aparece em nenhum exame. A pessoa chega com a ressonância normal, o sangue normal e a vida de pernas para o ar. Psiquiatria, para mim, é a parte da medicina que leva isso a sério. Trato depressão, ansiedade, transtorno bipolar, TDAH, autismo no adulto, insônia e os quadros em que a cabeça e o corpo se emaranham. Sem rótulo apressado e sem remédio como primeira e única resposta.</p></div>
-      <div class="side"><a class="btn btn-navy btn-sm" href="#contato">Marcar consulta em psiquiatria</a><span class="chip pend">formação e residência: a confirmar</span></div>
+      <div class="side"><a class="btn btn-navy btn-sm" href="https://wa.me/5521981462645?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20marcar%20uma%20consulta%20de%20psiquiatria%20com%20o%20Dr.%20Jo%C3%A3o%20Br%C3%ADgido." target="_blank" rel="noopener">Marcar consulta em psiquiatria</a><span class="chip pend">formação e residência: a confirmar</span></div>
     </div>
     <div class="facet-panel" id="fp-dor" data-f="dor" hidden>
       <div><h3>O médico da dor</h3><p>Dor que dura mais de três meses deixa de ser sintoma e vira doença própria. O sistema nervoso aprende a doer, igual quem aprende a andar de bicicleta e nunca mais esquece. Trabalho com dor crônica, fibromialgia, dor neuropática, dor na coluna e aquela dor que já rodou cinco especialistas. A pergunta que faço não é "onde dói?", e sim "o que está mantendo essa dor ligada?".</p></div>
-      <div class="side"><a class="btn btn-navy btn-sm" href="#contato">Marcar consulta de dor</a><span class="chip pend">título em dor: a confirmar</span></div>
+      <div class="side"><a class="btn btn-navy btn-sm" href="https://wa.me/5521981462645?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20marcar%20uma%20consulta%20de%20dor%20com%20o%20Dr.%20Jo%C3%A3o%20Br%C3%ADgido." target="_blank" rel="noopener">Marcar consulta de dor</a><span class="chip pend">título em dor: a confirmar</span></div>
     </div>
     <div class="facet-panel" id="fp-orto" data-f="orto" hidden>
       <div><h3>O ortopedista e traumatologista</h3><p>Também sou ortopedista e traumatologista, com dedicação à cirurgia do pé e tornozelo: joanete, fascite plantar, entorses, metatarsalgia, dedos que entortam. É a parte da minha medicina que opera, engessa e coloca a pessoa de pé de novo. E foi onde aprendi que o corpo tem memória: um pé que dói há dois anos mexe com o sono, com o humor e com a vontade de sair de casa.</p></div>
-      <div class="side"><a class="btn btn-navy btn-sm" href="#contato">Marcar consulta de ortopedia</a><span class="chip pend">RQE e hospitais: a confirmar</span></div>
+      <div class="side"><a class="btn btn-navy btn-sm" href="https://wa.me/5521981462645?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20marcar%20uma%20consulta%20de%20ortopedia%20com%20o%20Dr.%20Jo%C3%A3o%20Br%C3%ADgido." target="_blank" rel="noopener">Marcar consulta de ortopedia</a><span class="chip pend">RQE e hospitais: a confirmar</span></div>
     </div>
     <div class="facet-panel" id="fp-prof" data-f="prof" hidden>
       <div><h3>O professor</h3><p>Dou aula de psiquiatria para médicos e residentes e transformo livro grosso em material que dá para estudar no ônibus. Minha regra é simples: ninguém decora o que não entendeu. A mesma lógica que uso com aluno eu uso com paciente: explicar o mecanismo até a pessoa conseguir contar para a família o que tem.</p></div>
@@ -271,7 +283,7 @@ footer b{color:var(--fg)}
     </div>
     <div class="facet-panel" id="fp-pal" data-f="pal" hidden>
       <div><h3>O palestrante</h3><p>Falo sobre a ponte entre dor e depressão, sobre por que a depressão dói e sobre como mente e corpo adoecem juntos. Palestras para médicos, empresas e público geral, sempre em formato de aula: com exemplo, esquema na lousa e humor na medida.</p></div>
-      <div class="side"><a class="btn btn-ghost btn-sm" href="#contato">Convidar para um evento</a><span class="chip pend">lista de temas: a confirmar</span></div>
+      <div class="side"><a class="btn btn-ghost btn-sm" href="https://wa.me/5521981462645?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20convidar%20o%20Dr.%20Jo%C3%A3o%20Br%C3%ADgido%20para%20uma%20palestra." target="_blank" rel="noopener">Convidar para um evento</a><span class="chip pend">lista de temas: a confirmar</span></div>
     </div>
     <div class="facet-panel" id="fp-pai" data-f="pai" hidden>
       <div><h3>O pai e o cantor</h3><p>Cearense de Fortaleza, niteroiense por adoção, pai. Quando não estou no consultório, estou cantando, e canto como quem opera: concentrado e sem prometer que vai sair perfeito. Essa parte está aqui porque médico também é gente, e porque o paciente confia mais em quem ele reconhece como pessoa.</p></div>
@@ -377,7 +389,7 @@ footer b{color:var(--fg)}
           <p>Depressão se trata, e trata bem. O plano quase sempre combina quatro coisas: psicoterapia; medicação quando o quadro é moderado ou grave (o antidepressivo não vicia, não muda personalidade e leva de duas a seis semanas para mostrar efeito, por isso ninguém para por conta própria); sono, movimento e luz do dia como parte do tratamento, e não como conselho de calendário; e cuidado com a dor junto, porque dor sem controle puxa a depressão de volta.</p>
           <p>Força de vontade serve para chegar à consulta. O resto é tratamento.</p>
         </div>
-        <div class="lousa-cta"><a class="btn btn-cta" href="#contato">Marcar consulta</a><a class="btn btn-ghost btn-sm" href="https://www.instagram.com/jvbrigido/" target="_blank" rel="noopener">Dúvida rápida? Instagram</a><small>Conteúdo educativo. Não substitui consulta.</small></div>
+        <div class="lousa-cta"><a class="btn btn-cta" href="https://wa.me/5521981462645?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20marcar%20uma%20consulta%20de%20psiquiatria%20com%20o%20Dr.%20Jo%C3%A3o%20Br%C3%ADgido." target="_blank" rel="noopener">Marcar consulta</a><a class="btn btn-ghost btn-sm" href="https://www.instagram.com/jvbrigido/" target="_blank" rel="noopener">Dúvida rápida? Instagram</a><small>Conteúdo educativo. Não substitui consulta.</small></div>
       </div>
     </article>
 
@@ -422,7 +434,7 @@ footer b{color:var(--fg)}
           <p>Primeiro, uma avaliação feita direito: história desde a infância e os diagnósticos que imitam ou acompanham o TDAH (ansiedade, depressão, sono ruim, tireoide). Depois, um plano com três pernas: psicoeducação, porque entender o próprio funcionamento muda metade da vida; estratégias de organização feitas para um cérebro com TDAH, e não para o cérebro do vizinho; e, quando indicado, medicação, que existe em versões estimulantes e não estimulantes e é escolhida e acompanhada em consulta.</p>
           <p>Tratar TDAH não é "tomar remédio para estudar". É parar de passar a vida apagando incêndio.</p>
         </div>
-        <div class="lousa-cta"><a class="btn btn-cta" href="#contato">Marcar consulta</a><a class="btn btn-ghost btn-sm" href="https://www.instagram.com/jvbrigido/" target="_blank" rel="noopener">Dúvida rápida? Instagram</a><small>Conteúdo educativo. Não substitui consulta.</small></div>
+        <div class="lousa-cta"><a class="btn btn-cta" href="https://wa.me/5521981462645?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20marcar%20uma%20consulta%20de%20psiquiatria%20com%20o%20Dr.%20Jo%C3%A3o%20Br%C3%ADgido." target="_blank" rel="noopener">Marcar consulta</a><a class="btn btn-ghost btn-sm" href="https://www.instagram.com/jvbrigido/" target="_blank" rel="noopener">Dúvida rápida? Instagram</a><small>Conteúdo educativo. Não substitui consulta.</small></div>
       </div>
     </article>
 
@@ -469,7 +481,7 @@ footer b{color:var(--fg)}
           <p>Trata-se o sistema, não só o ponto que dói. O plano junta: entender o mecanismo (quem entende a própria dor já sente menos, e isso tem estudo); movimento gradual, começando ridiculamente leve e subindo devagar; sono tratado como prioridade, não como luxo; medicamentos que modulam a dor no sistema nervoso (não são anti-inflamatórios comuns nem "remédio forte", são reguladores de volume); e psicoterapia quando ansiedade, depressão ou trauma estão alimentando o circuito.</p>
           <p>Aqui mente e corpo não adoecem separados. E também não melhoram separados.</p>
         </div>
-        <div class="lousa-cta"><a class="btn btn-cta" href="#contato">Marcar consulta</a><a class="btn btn-ghost btn-sm" href="https://www.instagram.com/jvbrigido/" target="_blank" rel="noopener">Dúvida rápida? Instagram</a><small>Conteúdo educativo. Não substitui consulta.</small></div>
+        <div class="lousa-cta"><a class="btn btn-cta" href="https://wa.me/5521981462645?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20marcar%20uma%20consulta%20de%20dor%20com%20o%20Dr.%20Jo%C3%A3o%20Br%C3%ADgido." target="_blank" rel="noopener">Marcar consulta</a><a class="btn btn-ghost btn-sm" href="https://www.instagram.com/jvbrigido/" target="_blank" rel="noopener">Dúvida rápida? Instagram</a><small>Conteúdo educativo. Não substitui consulta.</small></div>
       </div>
     </article>
 
@@ -514,7 +526,7 @@ footer b{color:var(--fg)}
           <p>Começa sem bisturi: sapato de bico largo e salto baixo, protetores de silicone, fisioterapia para fortalecer o pé e controle da inflamação. Isso alivia a dor, mas não endireita o osso. Quando a dor manda na vida ou a deformidade avança sobre os outros dedos, entra a cirurgia, que realinha o osso; a técnica certa depende do grau do desvio medido no raio-X, e hoje muitas permitem apoiar o pé cedo, com sandália especial.</p>
           <p>Operar joanete por estética, sem dor, raramente vale a pena. Operar joanete que dói e deforma o resto do pé vale muito.</p>
         </div>
-        <div class="lousa-cta"><a class="btn btn-cta" href="#contato">Marcar consulta</a><a class="btn btn-ghost btn-sm" href="https://www.instagram.com/jvbrigido/" target="_blank" rel="noopener">Dúvida rápida? Instagram</a><small>Conteúdo educativo. Não substitui consulta.</small></div>
+        <div class="lousa-cta"><a class="btn btn-cta" href="https://wa.me/5521981462645?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20marcar%20uma%20consulta%20de%20ortopedia%20com%20o%20Dr.%20Jo%C3%A3o%20Br%C3%ADgido." target="_blank" rel="noopener">Marcar consulta</a><a class="btn btn-ghost btn-sm" href="https://www.instagram.com/jvbrigido/" target="_blank" rel="noopener">Dúvida rápida? Instagram</a><small>Conteúdo educativo. Não substitui consulta.</small></div>
       </div>
     </article>
   </div>
@@ -532,27 +544,43 @@ footer b{color:var(--fg)}
   </div>
 </section>
 
+<div class="band" id="consultorio"><div class="wrap"><h2>O consultório</h2><p>Icaraí, Niterói · segundas e quintas à tarde</p></div></div>
+<section class="block">
+  <div class="wrap">
+    <p class="intro">Jardim Icaraí Offices, sala 706, na Rua Geraldo Martins. Atendimento particular, com hora marcada.</p>
+    <div class="gallery">
+      <figure><img src="img/consultorio-recepcao.jpg" width="800" height="1000" loading="lazy" alt="Recepção do consultório, com parede cor de ameixa, banco estofado e arandelas"><figcaption>Recepção</figcaption></figure>
+      <figure><img src="img/consultorio-sala.jpg" width="800" height="1000" loading="lazy" alt="Sala de atendimento, com parede branca em relevo de círculos e estante de livros"><figcaption>Sala de atendimento</figcaption></figure>
+      <figure><img src="img/consultorio-cafe.jpg" width="800" height="1000" loading="lazy" alt="Cantinho do café, com cafeteira, xícaras e frigobar"><figcaption>Café e água enquanto você espera</figcaption></figure>
+    </div>
+    <div class="addr">
+      <div><span class="lbl">Endereço</span><p>Jardim Icaraí Offices · Rua Geraldo Martins, 70, sala 706<br>Icaraí, Niterói · RJ</p></div>
+      <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Geraldo%20Martins%2070%20Icara%C3%AD%20Niter%C3%B3i%20RJ" target="_blank" rel="noopener">Abrir no mapa</a>
+    </div>
+  </div>
+</section>
+
 <section class="contato" id="contato">
   <div class="wrap">
     <div>
       <h2>Marcar consulta</h2>
       <p>Mande uma mensagem no WhatsApp dizendo o que está sentindo e se prefere psiquiatria, dor ou ortopedia. A resposta vem com os horários disponíveis.</p>
-      <div style="margin-top:1.2rem;display:flex;gap:.7rem;flex-wrap:wrap"><span class="btn btn-cta">WhatsApp (número a definir)</span><a class="btn btn-ghost" href="https://www.instagram.com/jvbrigido/" target="_blank" rel="noopener">Instagram @jvbrigido</a></div>
+      <div style="margin-top:1.2rem;display:flex;gap:.7rem;flex-wrap:wrap"><a class="btn btn-cta" href="https://wa.me/5521981462645?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20marcar%20uma%20consulta%20com%20o%20Dr.%20Jo%C3%A3o%20Br%C3%ADgido." target="_blank" rel="noopener">Chamar no WhatsApp</a><a class="btn btn-ghost" href="https://www.instagram.com/jvbrigido/" target="_blank" rel="noopener">Instagram @jvbrigido</a></div>
     </div>
     <div class="list">
-      <div><span class="lbl">WhatsApp</span><span class="pend-box">número a definir</span></div>
-      <div><span class="lbl">Consultório</span><span class="pend-box">endereço e horários a confirmar</span></div>
+      <div><span class="lbl">WhatsApp</span><span>(21) 98146-2645</span></div>
+      <div><span class="lbl">Consultório</span><span>Jardim Icaraí Offices · Rua Geraldo Martins, 70, sala 706 · Icaraí, Niterói</span></div>
+      <div><span class="lbl">Atendimento</span><span>Segundas e quintas, à tarde, com hora marcada · particular</span></div>
       <div><span class="lbl">Instagram</span><a href="https://www.instagram.com/jvbrigido/" target="_blank" rel="noopener">@jvbrigido</a></div>
-      <div><span class="lbl">Site</span><span>drjoaobrigido.com.br</span></div>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <p><b>Dr. João Costa Brígido</b> · CRM 52-1088629 RJ · RQE Psiquiatria <span class="chip pend">a confirmar</span> · RQE Ortopedia e Traumatologia <span class="chip pend">a confirmar</span></p>
+    <p><b>Dr. João Victor Costa Barreto Brígido</b> · CRM 52-1088629 RJ · RQE Psiquiatria <span class="chip pend">a confirmar</span> · RQE Ortopedia e Traumatologia <span class="chip pend">a confirmar</span></p>
     <p>Conteúdo educativo. Não substitui consulta, exame ou prescrição. Em emergência, ligue 192 (SAMU). Para conversar com alguém agora, CVV 188.</p>
-    <p>© 2026 João Costa Brígido · Niterói, RJ · Protótipo v0.1</p>
+    <p>© 2026 João Victor Costa Barreto Brígido · Niterói, RJ · versão 0.2</p>
   </div>
 </footer>
 
