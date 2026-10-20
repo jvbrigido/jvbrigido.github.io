@@ -12,7 +12,7 @@
       {% for s in t.sinais %}<li>{{ s }}</li>{% endfor %}
     </ul>
     {% if t.leituras_ok %}
-    <p class="tema-leitura">Para ler antes: {% for a in t.leituras_ok %}<a href="{{ u(a.url) }}">{{ a.titulo.split(':')[0] }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p>
+    <p class="tema-leitura">Para ler antes: {% for a in t.leituras_ok %}<span class="tema-leitura-item"><a href="{{ u(a.url) }}">{{ a.titulo.split(':')[0] }}</a>{% if not loop.last %} ·{% endif %}</span>{% if not loop.last %} {% endif %}{% endfor %}</p>
     {% endif %}
     {% if not t.liberado %}
     <p class="pendente">Vai ao site público com RQE de {{ t.rqe|join(' ou ') }}{% if t.grupo == 'psiquiatria' %} (o de Psiquiatria está previsto para {{ site.rqe_psiquiatria_previsto }}){% endif %}.</p>

@@ -74,7 +74,7 @@ temas_atendimento:
     titulo: "Dor que não passa"
     texto: "Dor na coluna, nas articulações, nos pés e nos tornozelos que dura meses e já mexe com o sono, o humor e o trabalho."
     sinais: ["dor há mais de três meses", "exames que não explicam toda a dor", "sono e humor afetados pela dor"]
-    leituras: [dor-persistente-o-que-a-avaliacao-procura, fibromialgia-informacao-confiavel]
+    leituras: [dor-persistente-o-que-a-avaliacao-procura, dor-e-emocoes, fibromialgia-informacao-confiavel]
     rqe: ["Ortopedia e Traumatologia", "Psiquiatria", "Dor", "Medicina da Dor"]
   - id: sono
     grupo: psiquiatria
@@ -82,7 +82,7 @@ temas_atendimento:
     titulo: "Sono e insônia"
     texto: "Dificuldade para pegar no sono ou para mantê-lo, despertar cansado e noites que não descansam."
     sinais: ["sono ruim na maior parte das noites, por semanas", "cansaço e irritação durante o dia", "precisar de algo para conseguir dormir"]
-    leituras: []
+    leituras: [insonia-perguntas-que-ajudam]
     rqe: ["Psiquiatria", "Medicina do Sono"]
   - id: atencao
     grupo: psiquiatria
@@ -90,7 +90,7 @@ temas_atendimento:
     titulo: "Atenção, foco e desempenho"
     texto: "Dificuldade de concentração, desorganização e queda de rendimento nos estudos ou no trabalho, incluindo a avaliação de TDAH."
     sinais: ["tarefas que ficam pela metade", "esquecimentos que trazem prejuízo", "dificuldades presentes desde a infância"]
-    leituras: [dificuldade-de-concentracao]
+    leituras: [dificuldade-de-concentracao, tdah-no-adulto]
     rqe: ["Psiquiatria"]
   - id: raiva
     grupo: psiquiatria
@@ -98,7 +98,7 @@ temas_atendimento:
     titulo: "Raiva, impulsividade e estabilidade emocional"
     texto: "Explosões de raiva, reações por impulso e oscilações de humor que pesam nas relações, no trabalho e em quem as sente."
     sinais: ["arrependimento frequente depois de uma explosão", "conflitos que se repetem em casa ou no trabalho", "decisões por impulso que trazem prejuízo"]
-    leituras: []
+    leituras: [raiva-e-impulsividade]
     rqe: ["Psiquiatria"]
   - id: criancas
     grupo: psiquiatria
@@ -106,7 +106,7 @@ temas_atendimento:
     titulo: "Crianças e adolescentes"
     texto: "Atenção, comportamento, ansiedade e humor na infância e na adolescência, com escuta dos pais e, quando preciso, da escola."
     sinais: ["mudança de comportamento que dura semanas", "queda no rendimento escolar", "isolamento, irritação ou medo que limita a rotina"]
-    leituras: []
+    leituras: [sinais-em-criancas-e-adolescentes]
     rqe: ["Psiquiatria", "Psiquiatria da Infância e da Adolescência"]
   - id: pe-tornozelo
     grupo: ortopedia
@@ -114,7 +114,7 @@ temas_atendimento:
     titulo: "Pé, tornozelo e lesões"
     texto: "Entorses, dor no calcanhar, joanete e outras alterações do pé e do tornozelo, da avaliação ao tratamento."
     sinais: ["entorses que se repetem", "dor ao caminhar ou ao calçar", "deformidade ou inchaço que não melhora"]
-    leituras: [entorse-do-tornozelo]
+    leituras: [entorse-do-tornozelo, dor-no-calcanhar]
     rqe: ["Ortopedia e Traumatologia"]
 
 navegacao:
