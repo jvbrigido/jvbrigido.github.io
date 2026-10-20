@@ -100,7 +100,8 @@ class Portal:
             temas.append({**t, "liberado": liberado,
                           "leituras_ok": [self.artigos[s] for s in t.get("leituras", []) if s in self.artigos]})
         self.temas = temas
-        self.anuncio = any(t["liberado"] for t in temas) or (self.revisao and bool(temas))
+        # o título "Dor, sono, foco e emoções" anuncia temas de psiquiatria: só com tema desse grupo liberado
+        self.anuncio = self.revisao or any(t["liberado"] and t.get("grupo") == "psiquiatria" for t in temas)
         self.consulta_ok = self.revisao or self.site["consulta"].get("aprovado", False)
         self.trabalho_ok = self.revisao or self.site["como_trabalho"].get("aprovado", False)
 

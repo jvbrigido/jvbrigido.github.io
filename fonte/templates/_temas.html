@@ -15,7 +15,7 @@
     <p class="tema-leitura">Para ler antes: {% for a in t.leituras_ok %}<a href="{{ u(a.url) }}">{{ a.titulo.split(':')[0] }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p>
     {% endif %}
     {% if not t.liberado %}
-    <p class="pendente">No site público, só com RQE ({{ t.rqe|join(', ') }}){% if t.confirmar %}; {{ t.confirmar }}{% endif %}.</p>
+    <p class="pendente">Vai ao site público com RQE de {{ t.rqe|join(' ou ') }}{% if t.grupo == 'psiquiatria' %} (o de Psiquiatria está previsto para {{ site.rqe_psiquiatria_previsto }}){% endif %}.</p>
     {% endif %}
   </article>
   {% endfor %}

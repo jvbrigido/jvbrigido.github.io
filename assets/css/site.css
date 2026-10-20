@@ -409,7 +409,10 @@ sup.ref a { text-decoration: none; font-weight: 700; padding: 0 1px; color: var(
 .passo p { color: var(--texto-2); font-size: 16px; }
 @media (max-width: 860px) { .passos { grid-template-columns: minmax(0, 1fr); } }
 
-.fatos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: 12px; margin: 24px 0 0; }
+.fatos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 24px 0 0; }
+@media (max-width: 900px) { .fatos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .fatos { grid-template-columns: minmax(0, 1fr); } }
+.fato-destaque { border-color: var(--cobalto); background: #F3F6FF; }
 .fato { display: grid; grid-template-columns: 28px minmax(0, 1fr); column-gap: 12px; row-gap: 4px; align-items: start; align-content: start; background: var(--papel); border: 1px solid var(--linha); border-radius: 14px; padding: 16px 18px; }
 .fato .icone { grid-row: span 2; color: var(--cobalto); margin-top: 2px; }
 .fato dt { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--texto-2); }

@@ -9,7 +9,7 @@
   <li class="passo">
     <span class="passo-numero" aria-hidden="true">{{ loop.index }}</span>
     <h3 class="passo-titulo">{{ p.titulo }}</h3>
-    <p>{{ p.texto }}{% if loop.index == 2 %} {% if consulta.duracao %}A primeira consulta dura {{ consulta.duracao }}.{% elif revisao %}{{ pend("duração da primeira consulta") }}{% endif %}{% endif %}</p>
+    <p>{{ p.texto }}{% if loop.index == 2 and consulta.duracao %} A consulta dura {{ consulta.duracao }}.{% endif %}</p>
   </li>
   {% endfor %}
 </ol>
@@ -19,20 +19,15 @@
 {% endmacro %}
 
 {% macro fatos(completo=True) %}
-<dl class="fatos">
+<dl class="fatos{% if not completo %} fatos-3{% endif %}">
   {% if completo %}
   <div class="fato">{{ icone('calendario') }}<dt>Dias</dt><dd>{{ site.consultorio.dias }}, com hora marcada</dd></div>
-  <div class="fato">{{ icone('local') }}<dt>Onde</dt><dd>Presencial, {{ site.consultorio.local }}, {{ site.consultorio.bairro_cidade }}{% if consulta.online %}. {{ consulta.online }}{% elif revisao %} {{ pend("atende on-line?") }}{% endif %}</dd></div>
+  <div class="fato">{{ icone('local') }}<dt>Consultório</dt><dd>{{ site.consultorio.local }}, {{ site.consultorio.bairro_cidade }}</dd></div>
+  {% if consulta.online %}<div class="fato fato-destaque">{{ icone('video') }}<dt>On-line</dt><dd>{{ consulta.online }}, com a mesma duração da consulta presencial</dd></div>{% endif %}
   {% endif %}
-  {% if consulta.duracao or revisao %}
-  <div class="fato">{{ icone('relogio') }}<dt>Duração</dt><dd>{% if consulta.duracao %}Primeira consulta: {{ consulta.duracao }}{% if consulta.duracao_retorno %}. Retorno: {{ consulta.duracao_retorno }}{% endif %}{% else %}{{ pend("primeira consulta e retorno") }}{% endif %}</dd></div>
-  {% endif %}
-  <div class="fato">{{ icone('valor') }}<dt>Valores</dt><dd>{% if consulta.valores %}{{ consulta.valores }}{% else %}Informados pelo WhatsApp{% endif %}{% if consulta.pagamento %}. {{ consulta.pagamento }}{% endif %}{% if revisao and not (consulta.valores and consulta.pagamento) %} {{ pend("valores e formas de pagamento") }}{% endif %}</dd></div>
-  {% if completo %}
-  <div class="fato">{{ icone('recibo') }}<dt>Atendimento</dt><dd>{{ site.consultorio.atendimento }}, sem convênio{% if consulta.reembolso %}. {{ consulta.reembolso }}{% elif revisao %} {{ pend("recibo ou nota fiscal para reembolso") }}{% endif %}</dd></div>
-  {% elif consulta.reembolso or revisao %}
-  <div class="fato">{{ icone('recibo') }}<dt>Reembolso</dt><dd>{% if consulta.reembolso %}{{ consulta.reembolso }}{% else %}{{ pend("recibo ou nota fiscal para reembolso") }}{% endif %}</dd></div>
-  {% endif %}
+  {% if consulta.duracao %}<div class="fato">{{ icone('relogio') }}<dt>Duração</dt><dd>{{ consulta.duracao }}</dd></div>{% endif %}
+  <div class="fato">{{ icone('valor') }}<dt>Valores</dt><dd>{{ consulta.valores or "Informados pelo WhatsApp" }}</dd></div>
+  <div class="fato">{{ icone('recibo') }}<dt>Atendimento</dt><dd>{{ site.consultorio.atendimento }}, sem convênio{% if consulta.reembolso %}. {{ consulta.reembolso }}{% endif %}</dd></div>
 </dl>
 {% endmacro %}
 
@@ -40,22 +35,28 @@
 <div class="perguntas">
   <details>
     <summary>O atendimento é por convênio?</summary>
-    <p>Não. O atendimento é particular.{% if consulta.reembolso %} {{ consulta.reembolso }}.{% elif revisao %} {{ pend("recibo ou nota fiscal para reembolso") }}{% endif %}</p>
+    <p>Não. O atendimento é particular.{% if consulta.reembolso %} Você recebe recibo para pedir reembolso ao seu plano de saúde.{% endif %}</p>
   </details>
   <details>
     <summary>Quanto custa a consulta?</summary>
-    <p>{% if consulta.valores %}{{ consulta.valores }}{% if consulta.pagamento %} Formas de pagamento: {{ consulta.pagamento }}.{% endif %}{% else %}Os valores e as formas de pagamento são informados pelo WhatsApp administrativo.{% endif %}</p>
+    <p>O valor e as formas de pagamento são informados pelo WhatsApp administrativo.</p>
   </details>
-  {% if consulta.duracao or revisao %}
+  {% if consulta.duracao %}
   <details>
     <summary>Quanto tempo dura a consulta?</summary>
-    <p>{% if consulta.duracao %}A primeira consulta dura {{ consulta.duracao }}{% if consulta.duracao_retorno %}, e o retorno, {{ consulta.duracao_retorno }}{% endif %}.{% else %}{{ pend("duração da primeira consulta e do retorno") }}{% endif %}</p>
+    <p>A consulta dura {{ consulta.duracao }}, com tempo para ouvir a sua história com calma.</p>
   </details>
   {% endif %}
-  {% if consulta.online or revisao %}
+  {% if consulta.online %}
   <details>
     <summary>Tem atendimento on-line?</summary>
-    <p>{% if consulta.online %}{{ consulta.online }}.{% else %}{{ pend("sim ou não; se sim, para quem") }}{% endif %}</p>
+    <p>Sim. A consulta também pode ser feita on-line, por vídeo. O horário e o acesso são combinados pelo WhatsApp.</p>
+  </details>
+  {% endif %}
+  {% if consulta.criancas %}
+  <details>
+    <summary>Crianças e adolescentes são atendidos?</summary>
+    <p>{{ consulta.criancas }}</p>
   </details>
   {% endif %}
   <details>

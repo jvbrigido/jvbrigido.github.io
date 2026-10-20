@@ -8,13 +8,13 @@
 <section class="abertura abertura-pratica" aria-labelledby="t-abertura">
   <div class="faixa abertura-grade">
     <div class="abertura-texto">
-      <p class="sobretitulo sobretitulo-claro">Consulta médica particular · Icaraí, Niterói</p>
+      <p class="sobretitulo sobretitulo-claro">Consulta médica particular · Icaraí, Niterói, e on-line</p>
       {% if anuncio %}
       <h1 id="t-abertura">Dor, sono, foco e emoções: <em>uma avaliação com tempo para ouvir você.</em></h1>
       {% else %}
       <h1 id="t-abertura">Uma consulta com tempo para <em>ouvir a sua história.</em></h1>
       {% endif %}
-      <p class="abertura-sub">Atendimento presencial, com hora marcada, no {{ c_.local }}. O agendamento é feito pelo WhatsApp, sem precisar enviar dados clínicos.</p>
+      <p class="abertura-sub">Consulta de {{ consulta.duracao }} no {{ c_.local }}, em Icaraí, ou on-line, por vídeo. O agendamento é feito pelo WhatsApp, sem precisar enviar dados clínicos.</p>
       <div class="acoes">
         <a class="botao botao-primario" href="{{ whatsapp() }}" target="_blank" rel="noopener">{{ icone('conversa') }}<span>Agendar pelo WhatsApp</span></a>
         {% if consulta_ok %}
@@ -25,9 +25,9 @@
       </div>
       <ul class="selos" aria-label="Em resumo">
         <li>{{ site.profissao }} · {{ site.crm }}{% for r in site.rqe %} · RQE {{ r.numero }}{% endfor %}</li>
-        <li>{{ c_.atendimento }}</li>
-        <li>{{ c_.dias }}</li>
-        {% if consulta.duracao %}<li>Consulta de {{ consulta.duracao }}</li>{% endif %}
+        <li>Presencial e on-line</li>
+        <li>Consulta de {{ consulta.duracao }}</li>
+        <li>{{ c_.atendimento }}, com recibo para reembolso</li>
       </ul>
     </div>
     <figure class="abertura-moldura">
@@ -145,6 +145,7 @@
       <dl class="onde-dados">
         <div><dt>Dias</dt><dd>{{ c_.dias }}</dd></div>
         <div><dt>Atendimento</dt><dd>{{ c_.modalidade }}, {{ c_.atendimento|lower }}</dd></div>
+        {% if consulta.online %}<div><dt>On-line</dt><dd>{{ consulta.online }}, sem precisar vir ao consultório.</dd></div>{% endif %}
       </dl>
       <p class="onde-links">
         <a class="link-seta" href="{{ c_.mapa }}" target="_blank" rel="noopener">Abrir no Google Maps</a>

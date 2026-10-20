@@ -3,7 +3,7 @@
     <div class="rodape-id">
       <p class="rodape-marca">{{ site.nome_publico }}</p>
       <p>{{ site.nome_completo }}<br>{{ site.profissao }} · {{ site.crm }}{% for r in site.rqe %} · RQE {{ r.numero }} ({{ r.titulo }}){% endfor %}</p>
-      {% if revisao and not site.rqe %}<p class="pendente">RQE [A CONFIRMAR]: sem RQE conferido, nenhuma especialidade é anunciada.</p>{% endif %}
+      {% if revisao and not site.rqe %}<p class="pendente">RQE [A CONFIRMAR]: Ortopedia e Traumatologia (número a enviar). Psiquiatria previsto para {{ site.rqe_psiquiatria_previsto }}. Sem RQE, nenhuma especialidade é anunciada.</p>{% endif %}
       <p class="rodape-aviso">{{ site.aviso_educativo }}</p>
     </div>
     <nav class="rodape-links" aria-label="Rodapé">
