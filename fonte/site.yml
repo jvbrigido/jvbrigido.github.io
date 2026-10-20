@@ -10,9 +10,9 @@ fontes_consultadas_em: "20 de outubro de 2026"
 nome_publico: "João Brígido"
 nome_completo: "João Victor Costa Barreto Brígido"
 profissao: "Médico"
-crm: "CRM 52-1088629 RJ"
-rqe: []          # só RQE conferido, com o número. Ortopedia e Traumatologia: o João tem RQE e vai mandar o número. Psiquiatria: residência (R3), RQE previsto para março de 2027.
-                 # Formato: [{titulo: "Ortopedia e Traumatologia", numero: "00000"}]
+crm: "CRM 52-108862-9 RJ"   # formato da certidão do CREMERJ (nº 6342/2025)
+rqe:            # só RQE conferido. Psiquiatria: residência (R3), RQE previsto para março de 2027.
+  - {titulo: "Ortopedia e Traumatologia", numero: "34510"}   # certidão do CREMERJ nº 6342/2025, de 17/01/2025
 formacao: []     # só itens documentados. Exemplo: ["Medicina — Instituição, ano de conclusão"]
 rqe_psiquiatria_previsto: "março de 2027"
 foto: ""         # retrato aprovado, ex.: "/assets/img/joao-brigido.jpg"
@@ -72,7 +72,7 @@ temas_atendimento:
     grupo: dor
     icone: dor
     titulo: "Dor que não passa"
-    texto: "Dor nas costas, nas articulações, nos pés ou em outras partes do corpo que dura meses e já mexe com o sono, o humor e o trabalho."
+    texto: "Dor na coluna, nas articulações, nos pés e nos tornozelos que dura meses e já mexe com o sono, o humor e o trabalho."
     sinais: ["dor há mais de três meses", "exames que não explicam toda a dor", "sono e humor afetados pela dor"]
     leituras: [dor-persistente-o-que-a-avaliacao-procura, fibromialgia-informacao-confiavel]
     rqe: ["Ortopedia e Traumatologia", "Psiquiatria", "Dor", "Medicina da Dor"]
@@ -152,7 +152,6 @@ pendencias:
   - "Aprovação dos seis artigos de lançamento e dos textos institucionais."
   - "E-mail administrativo e responsável pelo canal de privacidade (hoje: WhatsApp)."
   - "Domínio drjoaobrigido.com.br: aguardando o registro no Registro.br."
-  - "Número do RQE de Ortopedia e Traumatologia (o João vai mandar): libera no site público a especialidade e os temas de dor e de pé e tornozelo."
   - "RQE de Psiquiatria: previsto para março de 2027 (residência, R3). Até lá, o site não apresenta o João como psiquiatra nem anuncia temas de psiquiatria."
   - "Aprovar os textos de Como funciona a consulta e Como eu trabalho (primeira pessoa)."
   - "Motivos frequentes de consulta: só vão ao site público com o RQE correspondente (Res. CFM 2.336/2023, art. 11, I)."

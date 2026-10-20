@@ -8,7 +8,7 @@ atualizado: "20 de outubro de 2026"
 
 ## Quem responde pelo conteúdo
 
-O conteúdo médico do portal é de responsabilidade de João Brígido, médico, CRM 52-1088629 RJ. Nenhum texto é publicado sem a revisão e a aprovação dele.
+O conteúdo médico do portal é de responsabilidade de João Brígido, médico, CRM 52-108862-9 RJ. Nenhum texto é publicado sem a revisão e a aprovação dele.
 
 ## Como um texto é produzido
 

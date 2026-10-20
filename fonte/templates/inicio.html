@@ -24,7 +24,8 @@
         {% endif %}
       </div>
       <ul class="selos" aria-label="Em resumo">
-        <li>{{ site.profissao }} · {{ site.crm }}{% for r in site.rqe %} · RQE {{ r.numero }}{% endfor %}</li>
+        <li>{{ site.profissao }} · {{ site.crm }}</li>
+        {% for r in site.rqe %}<li>{{ r.titulo }} · RQE {{ r.numero }}</li>{% endfor %}
         <li>Presencial e on-line</li>
         <li>Consulta de {{ consulta.duracao }}</li>
         <li>{{ c_.atendimento }}, com recibo para reembolso</li>

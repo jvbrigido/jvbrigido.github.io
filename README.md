@@ -1,6 +1,6 @@
 # Portal João Brígido
 
-Portal de conteúdo médico de João Brígido, médico, CRM 52-1088629 RJ. Site estático hospedado no GitHub Pages e construído segundo o *Guia Mestre de Construção do Portal João Brígido* (v1.0, outubro de 2026). Mantido pelo setor Blogueiro do Projeto Cuco; decisões e preferências ficam no Google Drive (Projeto Cuco / 05 - Blogueiro).
+Portal de conteúdo médico de João Brígido, médico, CRM 52-108862-9 RJ, Ortopedia e Traumatologia (RQE 34510). Site estático hospedado no GitHub Pages e construído segundo o *Guia Mestre de Construção do Portal João Brígido* (v1.0, outubro de 2026). Mantido pelo setor Blogueiro do Projeto Cuco; decisões e preferências ficam no Google Drive (Projeto Cuco / 05 - Blogueiro).
 
 ## Como o site é gerado
 

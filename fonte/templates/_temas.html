@@ -1,7 +1,7 @@
 {# Motivos frequentes de consulta. Só os temas liberados pelo RQE chegam ao site público (ver gerar.py). #}
 {% from "_icones.html" import icone %}
 {% macro temas_grid(u) %}
-<div class="temas">
+<div class="temas{% if temas|length == 2 %} temas-2{% elif temas|length == 1 %} temas-1{% endif %}">
   {% for t in temas %}
   <article class="tema-card{% if not t.liberado %} tema-pendente{% endif %}">
     <span class="tema-icone">{{ icone(t.icone) }}</span>

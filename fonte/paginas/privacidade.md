@@ -8,7 +8,7 @@ atualizado: "20 de outubro de 2026"
 
 ## Quem é o responsável
 
-O responsável pelo portal é João Victor Costa Barreto Brígido (João Brígido), médico, CRM 52-1088629 RJ. Para assuntos de privacidade, use o WhatsApp administrativo indicado na página [Contato](/contato/).
+O responsável pelo portal é João Victor Costa Barreto Brígido (João Brígido), médico, CRM 52-108862-9 RJ. Para assuntos de privacidade, use o WhatsApp administrativo indicado na página [Contato](/contato/).
 
 ## O que o site não coleta
 
