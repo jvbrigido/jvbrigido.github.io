@@ -37,7 +37,8 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; background: var(--tinta); }
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
 body {
   margin: 0; background: var(--papel); color: var(--texto);
   font-family: var(--sans); font-size: 17px; line-height: 1.6; font-weight: 450;

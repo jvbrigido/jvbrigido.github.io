@@ -179,7 +179,9 @@ class Portal:
         comece = sorted([a for a in artigos if a.get("comece_por_aqui")], key=lambda a: a["comece_por_aqui"])[:3]
         recentes = [a for a in self.ordenados(artigos) if a not in comece][:6]
 
-        self.render("inicio.html", "index.html", "inicio", f"{nome} · Saúde mental, dor e movimento",
+        # na revisão, a página inicial vira o nome do Artifact na galeria do Claude: só o nome do portal
+        titulo_inicio = f"Portal {nome}" if self.revisao else f"{nome} · Saúde mental, dor e movimento"
+        self.render("inicio.html", "index.html", "inicio", titulo_inicio,
                     "Portal de conteúdo médico de João Brígido sobre psiquiatria e saúde mental, dor e ortopedia e traumatologia, com explicações claras para o público leigo.",
                     comece=comece, recentes=recentes)
 
