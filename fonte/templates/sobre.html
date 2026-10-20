@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<header class="cabeca-pagina cabeca-sobre">
+  <div class="faixa sobre-cabeca">
+    <div>
+      <p class="sobretitulo sobretitulo-claro">Sobre</p>
+      <h1>{{ site.nome_publico }}</h1>
+      <p class="sobre-id">{{ site.profissao }} · {{ site.crm }}{% for r in site.rqe %} · RQE {{ r.numero }} ({{ r.titulo }}){% endfor %}</p>
+      <p class="cabeca-lead">Sou João Brígido, médico. Este portal reúne conteúdos que preparo para tornar assuntos médicos mais compreensíveis e ajudar o leitor a formular perguntas melhores sobre sua saúde.</p>
+    </div>
+    {% if site.foto %}
+    <img class="sobre-foto" src="{{ u(site.foto) }}" alt="Retrato de João Brígido" width="480" height="600">
+    {% elif revisao %}
+    <div class="sobre-foto sobre-foto-pendente" role="img" aria-label="Espaço reservado para o retrato">Retrato<br>[A CONFIRMAR]</div>
+    {% endif %}
+  </div>
+</header>
+
+<div class="faixa pagina-corpo">
+  <div class="prosa">
+    <h2>Por que este portal existe</h2>
+    <p>Uma percepção orienta o meu trabalho: muitas vezes, a dor mais incapacitante não aparece em nenhum exame. Explicar com clareza o que se sabe, e também o que ainda não se sabe, é uma forma de levar essa dor a sério.</p>
+    <p>Os textos da Biblioteca são escritos para quem não tem formação médica. Eles não fazem diagnóstico nem indicam tratamento individual; ajudam a entender um assunto e a chegar a uma consulta com perguntas mais claras.</p>
+
+    <h2>Temas</h2>
+    <p>Os conteúdos estão organizados em três temas: psiquiatria e saúde mental, dor, e ortopedia e traumatologia. A saúde mental vem primeiro, e a relação entre os três aparece sempre que ajuda a compreender o sofrimento de alguém.</p>
+
+    <h2>Ensino</h2>
+    <p>Também preparo aulas e materiais didáticos para estudantes e médicos, com a mesma preocupação que orienta este portal: transformar assunto difícil em explicação compreensível.</p>
+
+    <h2>Origem</h2>
+    <p>Nasci em Fortaleza, no Ceará, e vivo em Niterói, onde atendo em consultório.</p>
+
+    {% if site.formacao %}
+    <h2>Formação</h2>
+    <ul>{% for f in site.formacao %}<li>{{ f }}</li>{% endfor %}</ul>
+    {% elif revisao %}
+    <h2>Formação</h2>
+    <p class="pendente">[A CONFIRMAR] Formação, instituições, títulos e vínculos entram aqui só depois de conferidos e autorizados. Até lá, esta seção não aparece no site público.</p>
+    {% endif %}
+
+    <p class="sobre-fecho">O objetivo deste portal é compartilhar informação médica com clareza, indicar os limites do conhecimento disponível e facilitar o acesso às informações sobre meu trabalho.</p>
+  </div>
+  <aside class="caixa-lateral">
+    <p class="caixa-titulo">Atendimento</p>
+    <p>{{ site.consultorio.modalidade }}, em {{ site.consultorio.bairro_cidade }}.</p>
+    <a class="link-seta" href="{{ u('/consultorio/') }}">Ver informações do consultório</a>
+  </aside>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% from "_cards.html" import card %}
+{% block conteudo %}
+<header class="cabeca-pagina">
+  <div class="faixa">
+    <p class="sobretitulo sobretitulo-claro">Portal {{ site.nome_publico }}</p>
+    <h1>Biblioteca</h1>
+    <p class="cabeca-lead">Textos para compreender melhor temas de saúde mental, dor e movimento. Escolha um tema e, depois, o texto.</p>
+    <nav class="atalhos" aria-label="Temas da biblioteca">
+      {% for e in eixos %}<a href="#tema-{{ e.slug }}"><span aria-hidden="true">{{ e.numero }}</span> {{ e.nome }}</a>{% endfor %}
+    </nav>
+  </div>
+</header>
+
+{% for e in eixos %}
+{% set lista = por_eixo[e.slug] %}
+<section class="secao tema{% if loop.index is even %} secao-nevoa{% endif %}" id="tema-{{ e.slug }}" aria-labelledby="t-{{ e.slug }}">
+  <div class="faixa tema-grade">
+    <div class="tema-cabeca">
+      <p class="eixo-numero" aria-hidden="true">{{ e.numero }}</p>
+      <h2 id="t-{{ e.slug }}">{{ e.nome }}</h2>
+      <p>{{ e.card }}</p>
+      {% if lista %}<a class="link-seta" href="{{ u(e.url) }}">Abrir a coleção de {{ e.curto }}</a>{% endif %}
+    </div>
+    <div class="tema-lista">
+      {% if lista %}
+      <div class="grade-cards grade-cards-2">
+        {% for a in lista[:4] %}{{ card(a, u, mostrar_eixo=False) }}{% endfor %}
+      </div>
+      {% else %}
+      <p class="vazio">Os primeiros textos deste tema estão em revisão e serão publicados em breve.</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endfor %}
+{% endblock %}

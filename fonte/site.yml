@@ -1,0 +1,70 @@
+# Portal João Brígido · configurações globais (um ponto único, como pede o Guia Mestre, cap. 22)
+# Tudo o que aparece em mais de uma página mora aqui. Dado não conferido não entra:
+# fica em "pendencias" (só aparece no ambiente de revisão) e nunca no site público.
+
+lancado: false            # false = páginas com noindex (pré-lançamento). Vira true só com aprovação do João.
+url: "https://jvbrigido.github.io"   # trocar para "https://drjoaobrigido.com.br" quando o domínio estiver ativo (junto com o arquivo CNAME)
+ano: 2026
+fontes_consultadas_em: "20 de outubro de 2026"
+
+nome_publico: "João Brígido"
+nome_completo: "João Victor Costa Barreto Brígido"
+profissao: "Médico"
+crm: "CRM 52-1088629 RJ"
+rqe: []          # só RQE conferido. Exemplo: [{titulo: "Psiquiatria", numero: "00000"}]
+formacao: []     # só itens documentados. Exemplo: ["Medicina — Instituição, ano de conclusão"]
+foto: ""         # retrato aprovado, ex.: "/assets/img/joao-brigido.jpg"
+
+aviso_educativo: "Este conteúdo tem finalidade educativa e não substitui uma avaliação individual. O site não realiza diagnóstico, prescrição ou atendimento de urgência."
+
+contato:
+  whatsapp_numero: "5521981462645"
+  whatsapp_exibicao: "(21) 98146-2645"
+  whatsapp_mensagem: "Olá. Gostaria de informações administrativas sobre atendimento com João Brígido."
+  instagram: "jvbrigido"
+
+consultorio:
+  modalidade: "Presencial, com hora marcada"
+  local: "Jardim Icaraí Offices"
+  endereco: "Rua Geraldo Martins, 70, sala 706"
+  bairro_cidade: "Icaraí, Niterói (RJ)"
+  mapa: "https://www.google.com/maps/search/?api=1&query=Rua%20Geraldo%20Martins%2070%20Icara%C3%AD%20Niter%C3%B3i%20RJ"
+  dias: "Segundas e quintas, à tarde"
+  atendimento: "Particular"
+
+navegacao:
+  - {id: inicio, rotulo: "Início", href: "/"}
+  - {id: biblioteca, rotulo: "Biblioteca", href: "/biblioteca/"}
+  - {id: sobre, rotulo: "Sobre", href: "/sobre/"}
+  - {id: consultorio, rotulo: "Consultório", href: "/consultorio/"}
+  - {id: contato, rotulo: "Contato", href: "/contato/"}
+
+# Ordem fixa e editorial: 1. Psiquiatria; 2. Dor; 3. Ortopedia e traumatologia (Guia Mestre, cap. 01).
+eixos:
+  - slug: psiquiatria
+    numero: "01"
+    nome: "Psiquiatria e saúde mental"
+    curto: "psiquiatria"
+    card: "Dúvidas sobre emoções, sono, atenção, sofrimento psíquico e cuidado em saúde mental, sem transformar informações gerais em diagnósticos individuais."
+    intro: "Textos sobre emoções, humor, ansiedade, atenção, sono e cuidado em saúde mental. Eles explicam como uma avaliação funciona e quais perguntas ajudam a conversar com um profissional, sem transformar informações gerais em diagnósticos individuais. Se você não sabe por onde começar, o texto recomendado é uma boa porta de entrada."
+  - slug: dor
+    numero: "02"
+    nome: "Dor"
+    curto: "dor"
+    card: "Conteúdos para compreender a experiência da dor, suas diferentes dimensões e as perguntas que ajudam a conversar sobre investigação e cuidado."
+    intro: "Conteúdos para compreender a experiência da dor, especialmente quando ela persiste por meses. Os textos explicam como a dor é avaliada, como sono e humor se relacionam com ela e o que se sabe sobre as possibilidades e os limites do tratamento, sem reduzir a dor a uma única causa."
+  - slug: ortopedia-traumatologia
+    numero: "03"
+    nome: "Ortopedia e traumatologia"
+    curto: "ortopedia e traumatologia"
+    card: "Explicações sobre problemas do movimento, lesões e recuperação, com atenção ao contexto de cada pessoa e aos limites de uma orientação on-line."
+    intro: "Explicações sobre lesões, articulações e recuperação do movimento, com atenção ao pé e ao tornozelo. Os textos organizam as perguntas que ajudam a entender uma avaliação, o papel dos exames e as opções de cuidado, respeitando os limites de uma orientação on-line."
+
+# Aparecem só no ambiente de revisão (Guia Mestre, cap. 30). Nunca no site público.
+pendencias:
+  - "RQE de Psiquiatria, de Ortopedia e Traumatologia e registro de área de atuação em Dor: sem RQE conferido, nenhuma especialidade é anunciada."
+  - "Retrato do João (foto autoral aprovada) para a abertura e para a página Sobre."
+  - "Formação, instituições e vínculos autorizados para a página Sobre."
+  - "Aprovação dos seis artigos de lançamento e dos textos institucionais."
+  - "E-mail administrativo e responsável pelo canal de privacidade (hoje: WhatsApp)."
+  - "Domínio drjoaobrigido.com.br: aguardando o registro no Registro.br."

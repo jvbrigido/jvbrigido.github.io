@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% from "_cards.html" import card %}
+{% block conteudo %}
+<header class="cabeca-pagina">
+  <div class="faixa">
+    <nav class="trilha" aria-label="Você está em">
+      <ol>
+        <li><a href="{{ u('/') }}">Início</a></li>
+        <li><a href="{{ u('/biblioteca/') }}">Biblioteca</a></li>
+        <li aria-current="page">{{ eixo.nome }}</li>
+      </ol>
+    </nav>
+    <p class="eixo-numero eixo-numero-claro" aria-hidden="true">{{ eixo.numero }}</p>
+    <h1>{{ eixo.nome }}</h1>
+    <p class="cabeca-lead">{{ eixo.intro }}</p>
+  </div>
+</header>
+
+<section class="secao" aria-label="Textos de {{ eixo.curto }}">
+  <div class="faixa">
+    {% if itens %}
+      {% if pagina == 1 and itens[0].destaque_colecao %}
+      <div class="destaque">
+        <p class="sobretitulo">Texto recomendado para começar</p>
+        {{ card(itens[0], u, mostrar_eixo=False) }}
+      </div>
+      {% set resto = itens[1:] %}
+      {% else %}
+      {% set resto = itens %}
+      {% endif %}
+      {% if resto %}
+      <h2 class="lista-titulo">Todos os textos</h2>
+      <div class="grade-cards">
+        {% for a in resto %}{{ card(a, u, mostrar_eixo=False) }}{% endfor %}
+      </div>
+      {% endif %}
+      {% if paginas > 1 %}
+      <nav class="paginacao" aria-label="Páginas da coleção">
+        {% for n in range(1, paginas + 1) %}
+        <a href="{{ u(eixo.url if n == 1 else eixo.url ~ 'pagina/' ~ n ~ '/') }}"{% if n == pagina %} aria-current="page"{% endif %}>Página {{ n }}</a>
+        {% endfor %}
+      </nav>
+      {% endif %}
+    {% else %}
+    <p class="vazio">Os primeiros textos deste tema estão em revisão e serão publicados em breve. Enquanto isso, <a href="{{ u('/biblioteca/') }}">volte à Biblioteca</a>.</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

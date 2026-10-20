@@ -1,0 +1,15 @@
+{% macro card(a, u, mostrar_eixo=True) %}
+<article class="card{% if a.status == 'rascunho' %} card-rascunho{% endif %}">
+  <p class="card-meta">
+    {% if mostrar_eixo %}<span class="card-eixo">{{ a.eixo.nome }}</span>{% endif %}
+    {% if a.tipo %}<span class="card-tipo">{{ a.tipo }}</span>{% endif %}
+  </p>
+  <h3 class="card-titulo"><a href="{{ u(a.url) }}">{{ a.titulo }}</a></h3>
+  <p class="card-resumo">{{ a.resumo }}</p>
+  <p class="card-data">
+    {% if a.status == 'rascunho' %}<span class="selo-rascunho">Rascunho para aprovação</span>
+    {% elif a.revisado %}Revisado em {{ a.revisado_texto }}
+    {% else %}Publicado em {{ a.publicado_texto }}{% endif %}
+  </p>
+</article>
+{% endmacro %}

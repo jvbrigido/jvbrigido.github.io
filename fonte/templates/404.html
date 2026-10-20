@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<header class="cabeca-pagina">
+  <div class="faixa">
+    <p class="sobretitulo sobretitulo-claro">Erro 404</p>
+    <h1>Página não encontrada</h1>
+    <p class="cabeca-lead">O endereço pode ter mudado ou o texto pode ter sido retirado para revisão.</p>
+  </div>
+</header>
+<div class="faixa pagina-corpo">
+  <div class="prosa">
+    <p>Os conteúdos do portal estão organizados na Biblioteca, por tema.</p>
+    <p class="acoes"><a class="botao botao-primario" href="{{ u('/biblioteca/') }}">Ir para a Biblioteca</a> <a class="botao botao-contorno-escuro" href="{{ u('/') }}">Voltar ao início</a></p>
+  </div>
+</div>
+{% endblock %}

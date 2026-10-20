@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<header class="cabeca-pagina">
+  <div class="faixa">
+    <p class="sobretitulo sobretitulo-claro">{{ pagina_meta.sobretitulo|default('Portal ' ~ site.nome_publico) }}</p>
+    <h1>{{ pagina_meta.titulo }}</h1>
+    {% if pagina_meta.lead %}<p class="cabeca-lead">{{ pagina_meta.lead }}</p>{% endif %}
+  </div>
+</header>
+<div class="faixa pagina-corpo pagina-texto">
+  <div class="prosa">
+    {{ conteudo|links(u)|safe }}
+    {% if pagina_meta.atualizado %}<p class="ref-nota">Última atualização: {{ pagina_meta.atualizado }}.</p>{% endif %}
+  </div>
+</div>
+{% endblock %}

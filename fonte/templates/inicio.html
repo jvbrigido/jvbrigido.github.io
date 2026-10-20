@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% from "_cards.html" import card %}
+{% block conteudo %}
+<section class="abertura" aria-labelledby="t-abertura">
+  <div class="faixa abertura-grade">
+    <div class="abertura-texto">
+      <p class="sobretitulo sobretitulo-claro">Portal de conteúdo médico</p>
+      <h1 id="t-abertura">Saúde mental, dor e movimento: <em>informação para compreender melhor.</em></h1>
+      <p class="abertura-sub">Um espaço de conteúdo médico sobre psiquiatria e saúde mental, dor e ortopedia e traumatologia. Explicações claras para ampliar o entendimento e preparar conversas mais informadas sobre cuidado.</p>
+      <div class="acoes">
+        <a class="botao botao-primario" href="{{ u('/biblioteca/') }}">Explorar a biblioteca</a>
+        <a class="botao botao-contorno" href="{{ u('/sobre/') }}">Conhecer João Brígido</a>
+      </div>
+    </div>
+    <div class="abertura-arte">
+      {% if site.foto %}
+      <img class="abertura-foto" src="{{ u(site.foto) }}" alt="Retrato de João Brígido" width="640" height="800">
+      {% else %}
+      {% include "_aneis.html" %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<section class="secao" aria-labelledby="t-eixos">
+  <div class="faixa">
+    <div class="secao-cabeca">
+      <p class="sobretitulo">Biblioteca</p>
+      <h2 id="t-eixos">Três temas para explorar</h2>
+    </div>
+    <div class="eixos">
+      {% for e in eixos %}
+      <article class="eixo{% if loop.first %} eixo-principal{% endif %}">
+        <p class="eixo-numero" aria-hidden="true">{{ e.numero }}</p>
+        <h3 class="eixo-nome">{{ e.nome }}</h3>
+        <p class="eixo-texto">{{ e.card }}</p>
+        <a class="eixo-link" href="{{ u(e.url) }}">Ver textos de {{ e.curto }}</a>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% if comece %}
+<section class="secao secao-nevoa" aria-labelledby="t-comece">
+  <div class="faixa">
+    <div class="secao-cabeca">
+      <p class="sobretitulo">Leitura inicial</p>
+      <h2 id="t-comece">Comece por aqui</h2>
+    </div>
+    <div class="grade-cards">
+      {% for a in comece %}{{ card(a, u) }}{% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="secao" aria-labelledby="t-autor">
+  <div class="faixa apresentacao">
+    <div class="apresentacao-texto">
+      <p class="sobretitulo" id="t-autor">Quem escreve</p>
+      <p class="apresentacao-frase">Sou João Brígido, médico. Este portal reúne conteúdos que preparo para tornar assuntos médicos mais compreensíveis e ajudar o leitor a formular perguntas melhores sobre sua saúde.</p>
+      <a class="link-seta" href="{{ u('/sobre/') }}">Conhecer João Brígido</a>
+    </div>
+    <dl class="apresentacao-id">
+      <div><dt>Nome</dt><dd>{{ site.nome_completo }}</dd></div>
+      <div><dt>Registro</dt><dd>{{ site.profissao }} · {{ site.crm }}</dd></div>
+      <div><dt>Consultório</dt><dd>{{ site.consultorio.bairro_cidade }}</dd></div>
+    </dl>
+  </div>
+</section>
+
+{% if recentes %}
+<section class="secao secao-linha" aria-labelledby="t-recentes">
+  <div class="faixa">
+    <div class="secao-cabeca secao-cabeca-linha">
+      <div>
+        <p class="sobretitulo">Biblioteca</p>
+        <h2 id="t-recentes">Leituras recentes</h2>
+      </div>
+      <a class="link-seta" href="{{ u('/biblioteca/') }}">Ver a biblioteca completa</a>
+    </div>
+    <div class="grade-cards">
+      {% for a in recentes %}{{ card(a, u) }}{% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="atendimento" aria-labelledby="t-atendimento">
+  <div class="faixa atendimento-linha">
+    <div>
+      <h2 id="t-atendimento" class="atendimento-titulo">Informações sobre atendimento</h2>
+      <p>Para conhecer as informações administrativas sobre atendimento, consulte a página Consultório.</p>
+    </div>
+    <a class="botao botao-contorno-escuro" href="{{ u('/consultorio/') }}">Ver informações do consultório</a>
+  </div>
+</section>
+{% endblock %}

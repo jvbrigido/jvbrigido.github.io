@@ -1,0 +1,29 @@
+<footer class="rodape">
+  <div class="faixa rodape-grade">
+    <div class="rodape-id">
+      <p class="rodape-marca">{{ site.nome_publico }}</p>
+      <p>{{ site.nome_completo }}<br>{{ site.profissao }} · {{ site.crm }}{% for r in site.rqe %} · RQE {{ r.numero }} ({{ r.titulo }}){% endfor %}</p>
+      {% if revisao and not site.rqe %}<p class="pendente">RQE [A CONFIRMAR]: sem RQE conferido, nenhuma especialidade é anunciada.</p>{% endif %}
+      <p class="rodape-aviso">{{ site.aviso_educativo }}</p>
+    </div>
+    <nav class="rodape-links" aria-label="Rodapé">
+      <p class="rodape-titulo">Portal</p>
+      <ul>
+        <li><a href="{{ u('/biblioteca/') }}">Biblioteca</a></li>
+        <li><a href="{{ u('/sobre/') }}">Sobre</a></li>
+        <li><a href="{{ u('/politica-editorial/') }}">Política editorial</a></li>
+        <li><a href="{{ u('/privacidade/') }}">Privacidade</a></li>
+        <li><a href="{{ u('/termos/') }}">Termos de uso</a></li>
+      </ul>
+    </nav>
+    <div class="rodape-contato">
+      <p class="rodape-titulo">Contato administrativo</p>
+      <p><a href="{{ whatsapp() }}" target="_blank" rel="noopener">WhatsApp {{ site.contato.whatsapp_exibicao }}</a></p>
+      <p><a href="https://www.instagram.com/{{ site.contato.instagram }}/" target="_blank" rel="noopener">Instagram @{{ site.contato.instagram }}</a></p>
+      <p class="rodape-urgencia">Não é serviço de urgência. Em risco imediato, ligue 192 (SAMU). Apoio emocional: CVV, 188.</p>
+    </div>
+  </div>
+  <div class="faixa rodape-base">
+    <p>© {{ site.ano }} {{ site.nome_publico }}. Conteúdo educativo, sem coleta de dados de saúde.</p>
+  </div>
+</footer>

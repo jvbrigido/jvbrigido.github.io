@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block conteudo %}
+<header class="cabeca-pagina">
+  <div class="faixa">
+    <p class="sobretitulo sobretitulo-claro">Canais administrativos</p>
+    <h1>Contato</h1>
+    <p class="cabeca-lead">Os canais abaixo são destinados a informações administrativas sobre atendimento.</p>
+  </div>
+</header>
+
+<div class="faixa pagina-corpo contato-grade">
+  <section class="contato-canal" aria-labelledby="t-whatsapp">
+    <p class="sobretitulo">Canal principal</p>
+    <h2 id="t-whatsapp">WhatsApp administrativo</h2>
+    <p class="contato-numero">{{ site.contato.whatsapp_exibicao }}</p>
+    <a class="botao botao-primario" href="{{ whatsapp() }}" target="_blank" rel="noopener">Abrir conversa no WhatsApp</a>
+    <p class="contato-nota">Este canal é destinado a informações administrativas. Evite enviar dados clínicos neste primeiro contato. Não é um serviço de urgência.</p>
+    <p class="contato-mensagem">A conversa abre com a mensagem: “{{ site.contato.whatsapp_mensagem }}”</p>
+  </section>
+
+  <section class="contato-canal contato-canal-sec" aria-labelledby="t-instagram">
+    <p class="sobretitulo">Conteúdos</p>
+    <h2 id="t-instagram">Instagram</h2>
+    <p><a class="link-seta" href="https://www.instagram.com/{{ site.contato.instagram }}/" target="_blank" rel="noopener">@{{ site.contato.instagram }}</a></p>
+    <p class="contato-nota">Para conteúdos e novidades. Não use mensagens de redes sociais para assuntos de saúde.</p>
+  </section>
+
+  <aside class="aviso-seguranca contato-urgencia" role="note">
+    <p class="aviso-titulo">Em situação urgente</p>
+    <p>Em situação de risco imediato, procure um serviço de urgência ou acione o SAMU pelo 192. Para apoio emocional, o CVV atende pelo 188. O apoio emocional não substitui o atendimento de emergência.</p>
+  </aside>
+</div>
+{% endblock %}

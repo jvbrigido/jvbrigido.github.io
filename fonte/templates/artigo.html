@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% from "_cards.html" import card %}
+{% block conteudo %}
+<article class="artigo">
+  <header class="cabeca-pagina cabeca-artigo">
+    <div class="faixa">
+      <nav class="trilha" aria-label="Você está em">
+        <ol>
+          <li><a href="{{ u('/') }}">Início</a></li>
+          <li><a href="{{ u('/biblioteca/') }}">Biblioteca</a></li>
+          <li><a href="{{ u(a.eixo.url) }}">{{ a.eixo.nome }}</a></li>
+          <li aria-current="page">{{ a.titulo }}</li>
+        </ol>
+      </nav>
+      <p class="sobretitulo sobretitulo-claro">{{ a.eixo.nome }}{% if a.tipo %} · {{ a.tipo }}{% endif %}</p>
+      <h1>{{ a.titulo }}</h1>
+      <p class="cabeca-lead">{{ a.resumo }}</p>
+      <p class="artigo-meta">
+        <span>Por {{ a.autor or site.nome_publico }}, {{ site.profissao|lower }}</span>
+        {% if a.status == 'rascunho' %}
+        <span class="selo-rascunho">Rascunho para aprovação · ainda não publicado</span>
+        {% else %}
+        <span>Publicado em <time datetime="{{ a.publicado }}">{{ a.publicado_texto }}</time></span>
+        {% if a.revisado %}<span>Revisado em <time datetime="{{ a.revisado }}">{{ a.revisado_texto }}</time></span>{% endif %}
+        {% endif %}
+        <span>Leitura estimada: {{ a.minutos }} min</span>
+      </p>
+    </div>
+  </header>
+
+  <div class="faixa artigo-grade">
+    {% if a.toc %}
+    <nav class="indice" aria-labelledby="t-indice">
+      <p class="indice-titulo" id="t-indice">Neste texto</p>
+      <ol>
+        {% for h in a.toc %}<li><a href="#{{ h.id }}">{{ h.texto }}</a></li>{% endfor %}
+      </ol>
+    </nav>
+    {% endif %}
+    <div class="artigo-corpo">
+      {{ a.aviso_topo|safe }}
+      <div class="prosa">
+        {{ a.html|links(u)|safe }}
+      </div>
+
+      {% if a.referencias %}
+      <section class="referencias" aria-labelledby="t-ref">
+        <h2 id="t-ref">Referências</h2>
+        <ol>
+          {% for r in a.referencias %}
+          <li id="ref-{{ loop.index }}">
+            {% if r.url %}<a href="{{ r.url }}" target="_blank" rel="noopener">{{ r.titulo }}</a>{% else %}{{ r.titulo }}{% endif %}.
+            {{ r.detalhe }}
+            {% if r.sustenta %}<span class="ref-uso">Sustenta: {{ r.sustenta }}</span>{% endif %}
+          </li>
+          {% endfor %}
+        </ol>
+        <p class="ref-nota">Fontes consultadas em {{ site.fontes_consultadas_em }}.</p>
+      </section>
+      {% endif %}
+
+      <aside class="artigo-rodape">
+        <p>{{ site.aviso_educativo }}</p>
+        <p>Como este texto é produzido, revisado e corrigido: <a href="{{ u('/politica-editorial/') }}">Política editorial</a>. Informações administrativas sobre atendimento: <a href="{{ u('/consultorio/') }}">Consultório</a>.</p>
+      </aside>
+    </div>
+  </div>
+</article>
+
+{% if relacionados %}
+<section class="secao secao-nevoa" aria-labelledby="t-relacionados">
+  <div class="faixa">
+    <div class="secao-cabeca">
+      <p class="sobretitulo">Continue a leitura</p>
+      <h2 id="t-relacionados">Leituras relacionadas</h2>
+    </div>
+    <div class="grade-cards">
+      {% for r in relacionados %}{{ card(r, u) }}{% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+{% endblock %}

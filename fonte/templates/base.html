@@ -1,0 +1,46 @@
+{% if not esqueleto_artifact %}<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+{% endif %}
+<title>{{ titulo_pagina }}</title>
+{% if esqueleto_artifact %}<meta name="claude:viewport-fit-sides" content="cover">
+{% endif %}
+<meta name="description" content="{{ descricao }}">
+{% if noindex %}<meta name="robots" content="noindex, nofollow">
+{% endif %}
+<link rel="canonical" href="{{ canonical }}">
+<meta property="og:type" content="{{ og_tipo|default('website') }}">
+<meta property="og:site_name" content="Portal {{ site.nome_publico }}">
+<meta property="og:title" content="{{ titulo_pagina }}">
+<meta property="og:description" content="{{ descricao }}">
+<meta property="og:url" content="{{ canonical }}">
+<meta property="og:image" content="{{ site.url }}/assets/img/og-portal.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="theme-color" content="#070B16">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="icon" href="{{ u('/assets/img/favicon.svg') }}" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{{ u('/assets/img/icone-180.png') }}">
+<link rel="preload" href="{{ u('/assets/fonts/manrope-latin-wght-normal.woff2') }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ u('/assets/fonts/source-serif-4-latin-opsz-normal.woff2') }}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ u('/assets/css/site.css') }}">
+{% block head_extra %}{% endblock %}
+{% if not esqueleto_artifact %}
+</head>
+<body>
+{% endif %}
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+{% if revisao %}
+<div class="faixa-revisao" role="note"><div class="faixa"><strong>Ambiente de revisão · privado.</strong> Mostra rascunhos e pendências que ainda não estão no site público.</div></div>
+{% endif %}
+{% include "_cabecalho.html" %}
+<main id="conteudo" tabindex="-1">
+{% block conteudo %}{% endblock %}
+</main>
+{% include "_rodape.html" %}
+<script src="{{ u('/assets/js/site.js') }}" defer></script>
+{% if not esqueleto_artifact %}
+</body>
+</html>
+{% endif %}
