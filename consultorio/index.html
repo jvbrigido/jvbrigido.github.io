@@ -30,25 +30,34 @@
       <span class="marca-nome">João Brígido</span>
       <span class="marca-id">Médico · CRM 52-1088629 RJ</span>
     </a>
-    <button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu-principal" hidden>
-      <span class="menu-icone" aria-hidden="true"></span><span class="menu-rotulo">Menu</span>
-    </button>
     <nav id="menu-principal" class="menu" aria-label="Principal">
       <ul>
         <li><a href="/">Início</a></li>
         <li><a href="/biblioteca/">Biblioteca</a></li>
         <li><a href="/sobre/">Sobre</a></li>
         <li><a href="/consultorio/" aria-current="page">Consultório</a></li>
-        <li><a href="/contato/" class="menu-contato">Contato</a></li>
+        <li><a href="/contato/">Contato</a></li>
       </ul>
     </nav>
+    <div class="topo-acoes">
+      <a class="botao botao-primario botao-pequeno" href="https://wa.me/5521981462645?text=Ol%C3%A1.%20Gostaria%20de%20informa%C3%A7%C3%B5es%20administrativas%20sobre%20atendimento%20com%20Jo%C3%A3o%20Br%C3%ADgido." target="_blank" rel="noopener">Agendar</a>
+      <button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu-principal" hidden>
+        <span class="menu-icone" aria-hidden="true"></span><span class="menu-rotulo">Menu</span>
+      </button>
+    </div>
   </div>
 </header><main id="conteudo" tabindex="-1">
 <header class="cabeca-pagina">
   <div class="faixa">
     <p class="sobretitulo sobretitulo-claro">Informações administrativas</p>
     <h1>Consultório</h1>
-    <p class="cabeca-lead">Onde fica, como funciona e como pedir informações sobre o atendimento.</p>
+    <p class="cabeca-lead">Onde fica, como funciona a consulta e como agendar.</p>
+    <div class="acoes">
+      <a class="botao botao-primario" href="https://wa.me/5521981462645?text=Ol%C3%A1.%20Gostaria%20de%20informa%C3%A7%C3%B5es%20administrativas%20sobre%20atendimento%20com%20Jo%C3%A3o%20Br%C3%ADgido." target="_blank" rel="noopener"><svg class="icone" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-4.6a8.5 8.5 0 1 1 15.9-4.4z"/><path d="M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01" stroke-width="2.4"/>
+</svg>
+<span>Agendar pelo WhatsApp</span></a>
+    </div>
   </div>
 </header>
 
@@ -65,7 +74,7 @@
       </div>
       <div class="ficha">
         <dt>Atendimento</dt>
-        <dd>Particular</dd>
+        <dd>Particular, sem convênio</dd>
       </div>
       <div class="ficha ficha-larga">
         <dt>Local</dt>
@@ -75,6 +84,7 @@
     </dl>
   </div>
 </section>
+
 
 <section class="secao secao-nevoa" aria-labelledby="t-espaco">
   <div class="faixa">
@@ -92,36 +102,38 @@
 
 <div class="faixa pagina-corpo">
   <div class="prosa">
-    <h2>Como pedir informações</h2>
-    <p>Os horários disponíveis e o agendamento são informados pelo WhatsApp administrativo. Use esse canal para assuntos de agenda e logística; dúvidas sobre sintomas, diagnóstico ou medicamentos são tratadas na consulta.</p>
-
-    <h2>Antes da consulta</h2>
-    <p>Se você já tem exames, relatórios médicos ou receitas, leve-os no dia da consulta. Este site não recebe arquivos nem dados de saúde, e o primeiro contato pelo WhatsApp não precisa incluir informações clínicas.</p>
-
-    <h2>Dúvidas administrativas</h2>
+    <h2>Perguntas frequentes</h2>
     <div class="perguntas">
-      <details>
-        <summary>O atendimento é particular?</summary>
-        <p>Sim. O atendimento no consultório é particular.</p>
-      </details>
-      <details>
-        <summary>Como sei os horários disponíveis?</summary>
-        <p>Pelo WhatsApp administrativo, indicado abaixo e na página Contato.</p>
-      </details>
-      <details>
-        <summary>Posso enviar exames antes da consulta?</summary>
-        <p>Leve-os no dia da consulta. Por segurança, este site não recebe arquivos, e o primeiro contato não precisa conter dados clínicos.</p>
-      </details>
-      <details>
-        <summary>O consultório atende urgências?</summary>
-        <p>Não. Em situação de risco imediato, procure um serviço de urgência ou ligue 192 (SAMU).</p>
-      </details>
-    </div>
+  <details>
+    <summary>O atendimento é por convênio?</summary>
+    <p>Não. O atendimento é particular.</p>
+  </details>
+  <details>
+    <summary>Quanto custa a consulta?</summary>
+    <p>Os valores e as formas de pagamento são informados pelo WhatsApp administrativo.</p>
+  </details>
+  <details>
+    <summary>O que devo levar?</summary>
+    <p>Exames, relatórios e receitas que você já tiver. Se usa medicamentos, leve o nome e a dose de cada um. Este site não recebe arquivos, e o primeiro contato pelo WhatsApp não precisa de dados clínicos.</p>
+  </details>
+  <details>
+    <summary>Qual a diferença entre consulta médica e psicoterapia?</summary>
+    <p>Na consulta médica, a avaliação pode incluir diagnóstico, exames e, quando necessário, medicamentos. A psicoterapia é um tratamento conduzido por psicólogo ou outro profissional habilitado. Os dois podem caminhar juntos.</p>
+  </details>
+  <details>
+    <summary>O consultório atende urgências?</summary>
+    <p>Não. Em situação de risco imediato, procure um serviço de urgência ou ligue 192 (SAMU). Para apoio emocional, o CVV atende pelo 188, 24 horas.</p>
+  </details>
+</div>
+
   </div>
   <aside class="caixa-lateral caixa-contato">
-    <p class="caixa-titulo">Pedir informações · WhatsApp</p>
+    <p class="caixa-titulo">Agendar · WhatsApp</p>
     <p class="caixa-numero">(21) 98146-2645</p>
-    <a class="botao botao-primario botao-largo" href="https://wa.me/5521981462645?text=Ol%C3%A1.%20Gostaria%20de%20informa%C3%A7%C3%B5es%20administrativas%20sobre%20atendimento%20com%20Jo%C3%A3o%20Br%C3%ADgido." target="_blank" rel="noopener">Abrir conversa no WhatsApp</a>
+    <a class="botao botao-primario botao-largo" href="https://wa.me/5521981462645?text=Ol%C3%A1.%20Gostaria%20de%20informa%C3%A7%C3%B5es%20administrativas%20sobre%20atendimento%20com%20Jo%C3%A3o%20Br%C3%ADgido." target="_blank" rel="noopener"><svg class="icone" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-4.6a8.5 8.5 0 1 1 15.9-4.4z"/><path d="M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01" stroke-width="2.4"/>
+</svg>
+<span>Abrir conversa no WhatsApp</span></a>
     <p class="caixa-nota">Canal destinado a informações administrativas. Evite enviar dados clínicos neste primeiro contato. Não é um serviço de urgência.</p>
   </aside>
 </div>

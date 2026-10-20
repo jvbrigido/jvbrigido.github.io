@@ -30,32 +30,43 @@
       <span class="marca-nome">João Brígido</span>
       <span class="marca-id">Médico · CRM 52-1088629 RJ</span>
     </a>
-    <button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu-principal" hidden>
-      <span class="menu-icone" aria-hidden="true"></span><span class="menu-rotulo">Menu</span>
-    </button>
     <nav id="menu-principal" class="menu" aria-label="Principal">
       <ul>
         <li><a href="/" aria-current="page">Início</a></li>
         <li><a href="/biblioteca/">Biblioteca</a></li>
         <li><a href="/sobre/">Sobre</a></li>
         <li><a href="/consultorio/">Consultório</a></li>
-        <li><a href="/contato/" class="menu-contato">Contato</a></li>
+        <li><a href="/contato/">Contato</a></li>
       </ul>
     </nav>
+    <div class="topo-acoes">
+      <a class="botao botao-primario botao-pequeno" href="https://wa.me/5521981462645?text=Ol%C3%A1.%20Gostaria%20de%20informa%C3%A7%C3%B5es%20administrativas%20sobre%20atendimento%20com%20Jo%C3%A3o%20Br%C3%ADgido." target="_blank" rel="noopener">Agendar</a>
+      <button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu-principal" hidden>
+        <span class="menu-icone" aria-hidden="true"></span><span class="menu-rotulo">Menu</span>
+      </button>
+    </div>
   </div>
 </header><main id="conteudo" tabindex="-1">
-<section class="abertura" aria-labelledby="t-abertura">
+<section class="abertura abertura-pratica" aria-labelledby="t-abertura">
   <div class="faixa abertura-grade">
     <div class="abertura-texto">
-      <p class="sobretitulo sobretitulo-claro">Portal de conteúdo médico</p>
-      <h1 id="t-abertura">Saúde mental, dor e movimento: <em>informação para compreender melhor.</em></h1>
-      <p class="abertura-sub">Um espaço de conteúdo médico sobre psiquiatria e saúde mental, dor e ortopedia e traumatologia. Explicações claras para ampliar o entendimento e preparar conversas mais informadas sobre cuidado.</p>
+      <p class="sobretitulo sobretitulo-claro">Consulta médica particular · Icaraí, Niterói</p>
+      <h1 id="t-abertura">Uma consulta com tempo para <em>ouvir a sua história.</em></h1>
+      <p class="abertura-sub">Atendimento presencial, com hora marcada, no Jardim Icaraí Offices. O agendamento é feito pelo WhatsApp, sem precisar enviar dados clínicos.</p>
       <div class="acoes">
-        <a class="botao botao-primario" href="/biblioteca/">Explorar a biblioteca</a>
-        <a class="botao botao-contorno" href="/sobre/">Conhecer João Brígido</a>
+        <a class="botao botao-primario" href="https://wa.me/5521981462645?text=Ol%C3%A1.%20Gostaria%20de%20informa%C3%A7%C3%B5es%20administrativas%20sobre%20atendimento%20com%20Jo%C3%A3o%20Br%C3%ADgido." target="_blank" rel="noopener"><svg class="icone" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-4.6a8.5 8.5 0 1 1 15.9-4.4z"/><path d="M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01" stroke-width="2.4"/>
+</svg>
+<span>Agendar pelo WhatsApp</span></a>
+        <a class="botao botao-contorno" href="/consultorio/">Informações do consultório</a>
       </div>
+      <ul class="selos" aria-label="Em resumo">
+        <li>Médico · CRM 52-1088629 RJ</li>
+        <li>Particular</li>
+        <li>Segundas e quintas, à tarde</li>
+      </ul>
     </div>
-    <div class="abertura-arte">
+    <figure class="abertura-moldura">
 <svg class="aneis" viewBox="0 0 520 520" role="presentation" aria-hidden="true" focusable="false">
   <defs>
     <radialGradient id="aneis-luz" cx="50%" cy="50%" r="50%">
@@ -83,15 +94,23 @@
   <circle cx="406" cy="260" r="5" fill="#BFD0FF"/>
   <circle cx="114" cy="260" r="3.5" fill="#8FB0FF" fill-opacity=".8"/>
   <circle cx="260" cy="54" r="3" fill="#8FB0FF" fill-opacity=".6"/>
-</svg>    </div>
+</svg>      <img src="/assets/img/consultorio-sala.jpg" alt="Sala de atendimento do consultório, com parede branca em relevo de círculos e estante" width="800" height="1000">
+      <figcaption>Jardim Icaraí Offices · sala 706</figcaption>
+    </figure>
   </div>
 </section>
 
+
+
+
 <section class="secao" aria-labelledby="t-eixos">
   <div class="faixa">
-    <div class="secao-cabeca">
-      <p class="sobretitulo">Biblioteca</p>
-      <h2 id="t-eixos">Três temas para explorar</h2>
+    <div class="secao-cabeca secao-cabeca-linha">
+      <div>
+        <p class="sobretitulo">Biblioteca</p>
+        <h2 id="t-eixos">Para entender antes da consulta</h2>
+      </div>
+      <a class="link-seta" href="/biblioteca/">Abrir a biblioteca</a>
     </div>
     <div class="eixos">
       <article class="eixo eixo-principal">
@@ -116,12 +135,11 @@
   </div>
 </section>
 
-
-<section class="secao" aria-labelledby="t-autor">
+<section class="secao secao-linha" aria-labelledby="t-autor">
   <div class="faixa apresentacao">
     <div class="apresentacao-texto">
-      <p class="sobretitulo" id="t-autor">Quem escreve</p>
-      <p class="apresentacao-frase">Sou João Brígido, médico. Este portal reúne conteúdos que preparo para tornar assuntos médicos mais compreensíveis e ajudar o leitor a formular perguntas melhores sobre sua saúde.</p>
+      <p class="sobretitulo" id="t-autor">Quem atende</p>
+      <p class="apresentacao-frase">Sou João Brígido, médico. Atendo em consultório em Icaraí, Niterói, e preparo os conteúdos deste portal para tornar assuntos médicos mais compreensíveis.</p>
       <a class="link-seta" href="/sobre/">Conhecer João Brígido</a>
     </div>
     <dl class="apresentacao-id">
@@ -132,14 +150,71 @@
   </div>
 </section>
 
-
-<section class="atendimento" aria-labelledby="t-atendimento">
-  <div class="faixa atendimento-linha">
-    <div>
-      <h2 id="t-atendimento" class="atendimento-titulo">Informações sobre atendimento</h2>
-      <p>Para conhecer as informações administrativas sobre atendimento, consulte a página Consultório.</p>
+<section class="secao secao-nevoa" id="onde" aria-labelledby="t-onde">
+  <div class="faixa onde-grade">
+    <div class="onde-texto">
+      <p class="sobretitulo">Onde fica o consultório</p>
+      <h2 id="t-onde">Jardim Icaraí Offices</h2>
+      <p class="onde-endereco">Rua Geraldo Martins, 70, sala 706<br>Icaraí, Niterói (RJ)</p>
+      <dl class="onde-dados">
+        <div><dt>Dias</dt><dd>Segundas e quintas, à tarde</dd></div>
+        <div><dt>Atendimento</dt><dd>Presencial, com hora marcada, particular</dd></div>
+      </dl>
+      <p class="onde-links">
+        <a class="link-seta" href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Geraldo%20Martins%2070%20Icara%C3%AD%20Niter%C3%B3i%20RJ" target="_blank" rel="noopener">Abrir no Google Maps</a>
+        <a class="link-seta" href="/consultorio/">Ver fotos do consultório</a>
+      </p>
     </div>
-    <a class="botao botao-contorno-escuro" href="/consultorio/">Ver informações do consultório</a>
+    <div class="onde-fotos">
+      <img src="/assets/img/consultorio-recepcao.jpg" width="800" height="1000" loading="lazy" alt="Recepção do consultório, com banco estofado e arandelas">
+      <img src="/assets/img/consultorio-cafe.jpg" width="800" height="1000" loading="lazy" alt="Cantinho do café, com cafeteira, xícaras e frigobar">
+    </div>
+  </div>
+</section>
+
+<section class="secao" id="duvidas" aria-labelledby="t-faq">
+  <div class="faixa faq-grade">
+    <div class="secao-cabeca">
+      <p class="sobretitulo">Dúvidas</p>
+      <h2 id="t-faq">Perguntas frequentes</h2>
+      <p class="secao-nota">Outra dúvida sobre agenda, valores ou localização? Pergunte pelo WhatsApp administrativo.</p>
+    </div>
+    <div class="perguntas">
+  <details>
+    <summary>O atendimento é por convênio?</summary>
+    <p>Não. O atendimento é particular.</p>
+  </details>
+  <details>
+    <summary>Quanto custa a consulta?</summary>
+    <p>Os valores e as formas de pagamento são informados pelo WhatsApp administrativo.</p>
+  </details>
+  <details>
+    <summary>O que devo levar?</summary>
+    <p>Exames, relatórios e receitas que você já tiver. Se usa medicamentos, leve o nome e a dose de cada um. Este site não recebe arquivos, e o primeiro contato pelo WhatsApp não precisa de dados clínicos.</p>
+  </details>
+  <details>
+    <summary>Qual a diferença entre consulta médica e psicoterapia?</summary>
+    <p>Na consulta médica, a avaliação pode incluir diagnóstico, exames e, quando necessário, medicamentos. A psicoterapia é um tratamento conduzido por psicólogo ou outro profissional habilitado. Os dois podem caminhar juntos.</p>
+  </details>
+  <details>
+    <summary>O consultório atende urgências?</summary>
+    <p>Não. Em situação de risco imediato, procure um serviço de urgência ou ligue 192 (SAMU). Para apoio emocional, o CVV atende pelo 188, 24 horas.</p>
+  </details>
+</div>
+
+  </div>
+</section>
+
+<section class="cta-final" aria-labelledby="t-cta">
+  <div class="faixa cta-grade">
+    <div>
+      <h2 id="t-cta">Quer marcar uma consulta?</h2>
+      <p>O agendamento é feito pelo WhatsApp (21) 98146-2645. É um canal administrativo: evite enviar dados clínicos. Não é serviço de urgência.</p>
+    </div>
+    <a class="botao botao-claro" href="https://wa.me/5521981462645?text=Ol%C3%A1.%20Gostaria%20de%20informa%C3%A7%C3%B5es%20administrativas%20sobre%20atendimento%20com%20Jo%C3%A3o%20Br%C3%ADgido." target="_blank" rel="noopener"><svg class="icone" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-4.6a8.5 8.5 0 1 1 15.9-4.4z"/><path d="M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01" stroke-width="2.4"/>
+</svg>
+<span>Agendar pelo WhatsApp</span></a>
   </div>
 </section>
 </main>

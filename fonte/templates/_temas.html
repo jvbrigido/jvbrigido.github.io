@@ -1,0 +1,23 @@
+{# Motivos frequentes de consulta. Só os temas liberados pelo RQE chegam ao site público (ver gerar.py). #}
+{% from "_icones.html" import icone %}
+{% macro temas_grid(u) %}
+<div class="temas">
+  {% for t in temas %}
+  <article class="tema-card{% if not t.liberado %} tema-pendente{% endif %}">
+    <span class="tema-icone">{{ icone(t.icone) }}</span>
+    <h3 class="tema-titulo">{{ t.titulo }}</h3>
+    <p class="tema-texto">{{ t.texto }}</p>
+    <p class="tema-sinais-titulo">Quando vale procurar</p>
+    <ul class="tema-sinais">
+      {% for s in t.sinais %}<li>{{ s }}</li>{% endfor %}
+    </ul>
+    {% if t.leituras_ok %}
+    <p class="tema-leitura">Para ler antes: {% for a in t.leituras_ok %}<a href="{{ u(a.url) }}">{{ a.titulo.split(':')[0] }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p>
+    {% endif %}
+    {% if not t.liberado %}
+    <p class="pendente">No site público, só com RQE ({{ t.rqe|join(', ') }}){% if t.confirmar %}; {{ t.confirmar }}{% endif %}.</p>
+    {% endif %}
+  </article>
+  {% endfor %}
+</div>
+{% endmacro %}

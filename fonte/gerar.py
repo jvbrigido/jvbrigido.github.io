@@ -85,6 +85,24 @@ class Portal:
         self.eixo_por_slug = {e["slug"]: e for e in self.eixos}
         self.artigos = self.carregar_artigos([FONTE / "artigos"] + ([Path(rascunhos_dir)] if rascunhos_dir else []))
         self.paginas_geradas = []
+        self.preparar_consulta()
+
+    # ---------- consulta e motivos de consulta (regras de publicação) ----------
+    def preparar_consulta(self):
+        """Res. CFM 2.336/2023, art. 11, I: um tema de atendimento só vai ao site público com o RQE correspondente.
+        Na revisão, tudo aparece, com a indicação do que falta."""
+        rqes = {r["titulo"] for r in self.site.get("rqe", [])}
+        temas = []
+        for t in self.site.get("temas_atendimento", []):
+            liberado = bool(rqes & set(t.get("rqe", []))) and not t.get("confirmar")
+            if not (liberado or self.revisao):
+                continue
+            temas.append({**t, "liberado": liberado,
+                          "leituras_ok": [self.artigos[s] for s in t.get("leituras", []) if s in self.artigos]})
+        self.temas = temas
+        self.anuncio = any(t["liberado"] for t in temas) or (self.revisao and bool(temas))
+        self.consulta_ok = self.revisao or self.site["consulta"].get("aprovado", False)
+        self.trabalho_ok = self.revisao or self.site["como_trabalho"].get("aprovado", False)
 
     # ---------- conteúdo ----------
     def carregar_artigos(self, pastas):
@@ -166,7 +184,9 @@ class Portal:
             site=self.site, eixos=self.eixos, revisao=self.revisao, u=u, secao=secao,
             titulo_pagina=titulo, descricao=descricao, canonical=canonical.replace("//index.html", "/"),
             noindex=self.revisao or not self.site.get("lancado"), whatsapp=self.whatsapp,
-            esqueleto_artifact=self.revisao and caminho == "index.html", caminho=caminho, **ctx)
+            esqueleto_artifact=self.revisao and caminho == "index.html", caminho=caminho,
+            temas=self.temas, anuncio=self.anuncio, consulta=self.site["consulta"],
+            consulta_ok=self.consulta_ok, trabalho_ok=self.trabalho_ok, **ctx)
         destino = self.saida / caminho
         destino.parent.mkdir(parents=True, exist_ok=True)
         destino.write_text(html, encoding="utf-8")

@@ -28,7 +28,7 @@
     if (e.target.closest && e.target.closest("a")) definir(false);
   });
 
-  var largo = window.matchMedia ? window.matchMedia("(min-width: 881px)") : null;
+  var largo = window.matchMedia ? window.matchMedia("(min-width: 1081px)") : null;
   if (largo) {
     var aoMudar = function () { if (largo.matches) definir(false); };
     if (largo.addEventListener) largo.addEventListener("change", aoMudar);

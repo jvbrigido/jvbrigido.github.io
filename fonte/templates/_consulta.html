@@ -1,0 +1,74 @@
+{# Como funciona a consulta: passos, fatos e perguntas frequentes. Importar "with context". #}
+{% from "_icones.html" import icone %}
+
+{% macro pend(rotulo) %}<span class="pendente-inline">[A CONFIRMAR] {{ rotulo }}</span>{% endmacro %}
+
+{% macro passos() %}
+<ol class="passos">
+  {% for p in consulta.passos %}
+  <li class="passo">
+    <span class="passo-numero" aria-hidden="true">{{ loop.index }}</span>
+    <h3 class="passo-titulo">{{ p.titulo }}</h3>
+    <p>{{ p.texto }}{% if loop.index == 2 %} {% if consulta.duracao %}A primeira consulta dura {{ consulta.duracao }}.{% elif revisao %}{{ pend("duração da primeira consulta") }}{% endif %}{% endif %}</p>
+  </li>
+  {% endfor %}
+</ol>
+{% if revisao and not consulta.aprovado %}
+<p class="pendente">Rascunho para aprovação: estes passos descrevem a sua consulta e só vão ao site público depois do seu "aprovo".</p>
+{% endif %}
+{% endmacro %}
+
+{% macro fatos(completo=True) %}
+<dl class="fatos">
+  {% if completo %}
+  <div class="fato">{{ icone('calendario') }}<dt>Dias</dt><dd>{{ site.consultorio.dias }}, com hora marcada</dd></div>
+  <div class="fato">{{ icone('local') }}<dt>Onde</dt><dd>Presencial, {{ site.consultorio.local }}, {{ site.consultorio.bairro_cidade }}{% if consulta.online %}. {{ consulta.online }}{% elif revisao %} {{ pend("atende on-line?") }}{% endif %}</dd></div>
+  {% endif %}
+  {% if consulta.duracao or revisao %}
+  <div class="fato">{{ icone('relogio') }}<dt>Duração</dt><dd>{% if consulta.duracao %}Primeira consulta: {{ consulta.duracao }}{% if consulta.duracao_retorno %}. Retorno: {{ consulta.duracao_retorno }}{% endif %}{% else %}{{ pend("primeira consulta e retorno") }}{% endif %}</dd></div>
+  {% endif %}
+  <div class="fato">{{ icone('valor') }}<dt>Valores</dt><dd>{% if consulta.valores %}{{ consulta.valores }}{% else %}Informados pelo WhatsApp{% endif %}{% if consulta.pagamento %}. {{ consulta.pagamento }}{% endif %}{% if revisao and not (consulta.valores and consulta.pagamento) %} {{ pend("valores e formas de pagamento") }}{% endif %}</dd></div>
+  {% if completo %}
+  <div class="fato">{{ icone('recibo') }}<dt>Atendimento</dt><dd>{{ site.consultorio.atendimento }}, sem convênio{% if consulta.reembolso %}. {{ consulta.reembolso }}{% elif revisao %} {{ pend("recibo ou nota fiscal para reembolso") }}{% endif %}</dd></div>
+  {% elif consulta.reembolso or revisao %}
+  <div class="fato">{{ icone('recibo') }}<dt>Reembolso</dt><dd>{% if consulta.reembolso %}{{ consulta.reembolso }}{% else %}{{ pend("recibo ou nota fiscal para reembolso") }}{% endif %}</dd></div>
+  {% endif %}
+</dl>
+{% endmacro %}
+
+{% macro faq() %}
+<div class="perguntas">
+  <details>
+    <summary>O atendimento é por convênio?</summary>
+    <p>Não. O atendimento é particular.{% if consulta.reembolso %} {{ consulta.reembolso }}.{% elif revisao %} {{ pend("recibo ou nota fiscal para reembolso") }}{% endif %}</p>
+  </details>
+  <details>
+    <summary>Quanto custa a consulta?</summary>
+    <p>{% if consulta.valores %}{{ consulta.valores }}{% if consulta.pagamento %} Formas de pagamento: {{ consulta.pagamento }}.{% endif %}{% else %}Os valores e as formas de pagamento são informados pelo WhatsApp administrativo.{% endif %}</p>
+  </details>
+  {% if consulta.duracao or revisao %}
+  <details>
+    <summary>Quanto tempo dura a consulta?</summary>
+    <p>{% if consulta.duracao %}A primeira consulta dura {{ consulta.duracao }}{% if consulta.duracao_retorno %}, e o retorno, {{ consulta.duracao_retorno }}{% endif %}.{% else %}{{ pend("duração da primeira consulta e do retorno") }}{% endif %}</p>
+  </details>
+  {% endif %}
+  {% if consulta.online or revisao %}
+  <details>
+    <summary>Tem atendimento on-line?</summary>
+    <p>{% if consulta.online %}{{ consulta.online }}.{% else %}{{ pend("sim ou não; se sim, para quem") }}{% endif %}</p>
+  </details>
+  {% endif %}
+  <details>
+    <summary>O que devo levar?</summary>
+    <p>Exames, relatórios e receitas que você já tiver. Se usa medicamentos, leve o nome e a dose de cada um. Este site não recebe arquivos, e o primeiro contato pelo WhatsApp não precisa de dados clínicos.</p>
+  </details>
+  <details>
+    <summary>Qual a diferença entre consulta médica e psicoterapia?</summary>
+    <p>Na consulta médica, a avaliação pode incluir diagnóstico, exames e, quando necessário, medicamentos. A psicoterapia é um tratamento conduzido por psicólogo ou outro profissional habilitado. Os dois podem caminhar juntos.</p>
+  </details>
+  <details>
+    <summary>O consultório atende urgências?</summary>
+    <p>Não. Em situação de risco imediato, procure um serviço de urgência ou ligue 192 (SAMU). Para apoio emocional, o CVV atende pelo 188, 24 horas.</p>
+  </details>
+</div>
+{% endmacro %}

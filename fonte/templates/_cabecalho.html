@@ -4,15 +4,18 @@
       <span class="marca-nome">{{ site.nome_publico }}</span>
       <span class="marca-id">{{ site.profissao }} · {{ site.crm }}</span>
     </a>
-    <button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu-principal" hidden>
-      <span class="menu-icone" aria-hidden="true"></span><span class="menu-rotulo">Menu</span>
-    </button>
     <nav id="menu-principal" class="menu" aria-label="Principal">
       <ul>
         {% for item in site.navegacao %}
-        <li><a href="{{ u(item.href) }}"{% if item.id == secao %} aria-current="page"{% endif %}{% if item.id == 'contato' %} class="menu-contato"{% endif %}>{{ item.rotulo }}</a></li>
+        <li><a href="{{ u(item.href) }}"{% if item.id == secao %} aria-current="page"{% endif %}>{{ item.rotulo }}</a></li>
         {% endfor %}
       </ul>
     </nav>
+    <div class="topo-acoes">
+      <a class="botao botao-primario botao-pequeno" href="{{ whatsapp() }}" target="_blank" rel="noopener">Agendar</a>
+      <button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu-principal" hidden>
+        <span class="menu-icone" aria-hidden="true"></span><span class="menu-rotulo">Menu</span>
+      </button>
+    </div>
   </div>
 </header>

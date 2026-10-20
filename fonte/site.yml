@@ -32,6 +32,83 @@ consultorio:
   dias: "Segundas e quintas, à tarde"
   atendimento: "Particular"
 
+# Como funciona a consulta (pedido do João em 20/10/2026, inspirado no site de referência).
+# Campo vazio = dado ainda não informado: some do site público e aparece como [A CONFIRMAR] na revisão.
+# Os textos em primeira pessoa e a descrição da consulta só vão ao site público com "aprovado: true".
+consulta:
+  aprovado: false
+  passos:
+    - titulo: "Agendamento"
+      texto: "Pelo WhatsApp administrativo, você escolhe um horário disponível. Não é preciso enviar exames nem dados clínicos nesse primeiro contato."
+    - titulo: "A primeira consulta"
+      texto: "A conversa começa pela sua história: o que trouxe você, desde quando, o que já foi tentado e como estão o sono, o humor e a rotina. Depois vêm o exame, as hipóteses e as opções de cuidado."
+    - titulo: "Depois da consulta"
+      texto: "O próximo passo é combinado com você: um retorno, exames, um tratamento ou o encaminhamento a outro profissional. A frequência dos retornos depende do plano."
+  duracao: ""           # ex.: "cerca de 50 minutos"
+  duracao_retorno: ""   # ex.: "cerca de 30 minutos"
+  valores: ""           # ex.: "Consulta: R$ 000. Retorno: R$ 000." (a Res. CFM 2.336/2023, art. 9, VI, permite informar valores). Vazio = "informados pelo WhatsApp".
+  pagamento: ""         # ex.: "Pix, cartão de débito e de crédito"
+  reembolso: ""         # ex.: "Recibo para pedir reembolso ao plano de saúde"
+  online: ""            # ex.: "Também por vídeo, para quem está fora de Niterói". Vazio = só presencial.
+
+como_trabalho:
+  aprovado: false
+  itens:
+    - titulo: "A história vem antes do rótulo"
+      texto: "Um diagnóstico depende de contexto, de tempo e de conversa. Às vezes, ele precisa de mais de uma consulta."
+    - titulo: "Corpo, sono e emoções na mesma avaliação"
+      texto: "Muitas vezes, a dor mais incapacitante não aparece em nenhum exame. Por isso, dor, sono e humor entram juntos na conversa."
+    - titulo: "Plano combinado com você"
+      texto: "Cada decisão é explicada: exames, psicoterapia, outros profissionais e, quando necessário, medicamentos. O plano também é seu."
+
+# Motivos frequentes de consulta (o "anúncio" da página inicial, pedido em 20/10/2026).
+# Res. CFM 2.336/2023, art. 11, I: quem não é especialista não pode divulgar que trata doenças específicas.
+# Cada tema só aparece no site público quando um dos RQE da lista "rqe" estiver cadastrado acima.
+temas_atendimento:
+  - id: dor
+    icone: dor
+    titulo: "Dor que não passa"
+    texto: "Dor que dura meses, volta com frequência e já mexe com o sono, o humor e o trabalho."
+    sinais: ["dor há mais de três meses", "exames que não explicam toda a dor", "sono e humor afetados pela dor"]
+    leituras: [dor-persistente-o-que-a-avaliacao-procura, fibromialgia-informacao-confiavel]
+    rqe: ["Psiquiatria", "Ortopedia e Traumatologia", "Dor", "Medicina da Dor"]
+  - id: sono
+    icone: sono
+    titulo: "Sono e insônia"
+    texto: "Dificuldade para pegar no sono ou para mantê-lo, despertar cansado e noites que não descansam."
+    sinais: ["sono ruim na maior parte das noites, por semanas", "cansaço e irritação durante o dia", "precisar de algo para conseguir dormir"]
+    leituras: []
+    rqe: ["Psiquiatria", "Medicina do Sono"]
+  - id: atencao
+    icone: atencao
+    titulo: "Atenção, foco e desempenho"
+    texto: "Dificuldade de concentração, desorganização e queda de rendimento nos estudos ou no trabalho, incluindo a avaliação de TDAH no adulto."
+    sinais: ["tarefas que ficam pela metade", "esquecimentos que trazem prejuízo", "dificuldades presentes desde a infância"]
+    leituras: [dificuldade-de-concentracao]
+    rqe: ["Psiquiatria"]
+  - id: raiva
+    icone: raiva
+    titulo: "Raiva, impulsividade e estabilidade emocional"
+    texto: "Explosões de raiva, reações por impulso e oscilações de humor que pesam nas relações, no trabalho e em quem as sente."
+    sinais: ["arrependimento frequente depois de uma explosão", "conflitos que se repetem em casa ou no trabalho", "decisões por impulso que trazem prejuízo"]
+    leituras: []
+    rqe: ["Psiquiatria"]
+  - id: ansiedade-humor
+    icone: ansiedade
+    titulo: "Ansiedade e humor"
+    texto: "Preocupação difícil de controlar, crises de ansiedade, tristeza que não passa e perda de interesse pelas coisas."
+    sinais: ["preocupação na maior parte dos dias", "evitar situações por medo", "tristeza ou desânimo por semanas"]
+    leituras: [ansiedade-o-que-a-avaliacao-procura, depressao-e-tristeza]
+    rqe: ["Psiquiatria"]
+  - id: criancas
+    icone: criancas
+    titulo: "Crianças e adolescentes"
+    texto: "Atenção, comportamento, ansiedade e humor na infância e na adolescência, com escuta dos pais e, quando preciso, da escola."
+    sinais: ["mudança de comportamento que dura semanas", "queda no rendimento escolar", "isolamento, irritação ou medo que limita a rotina"]
+    leituras: []
+    rqe: ["Psiquiatria da Infância e da Adolescência"]
+    confirmar: "só entra se o João atender crianças e adolescentes e tiver o RQE dessa área de atuação"
+
 navegacao:
   - {id: inicio, rotulo: "Início", href: "/"}
   - {id: biblioteca, rotulo: "Biblioteca", href: "/biblioteca/"}
@@ -68,3 +145,6 @@ pendencias:
   - "Aprovação dos seis artigos de lançamento e dos textos institucionais."
   - "E-mail administrativo e responsável pelo canal de privacidade (hoje: WhatsApp)."
   - "Domínio drjoaobrigido.com.br: aguardando o registro no Registro.br."
+  - "Consulta: duração da primeira consulta e do retorno, valores e formas de pagamento, recibo ou nota fiscal para reembolso, atendimento on-line e, se houver, atendimento de crianças (a partir de que idade)."
+  - "Aprovar os textos de Como funciona a consulta e Como eu trabalho (primeira pessoa)."
+  - "Motivos frequentes de consulta: só vão ao site público com o RQE correspondente (Res. CFM 2.336/2023, art. 11, I)."

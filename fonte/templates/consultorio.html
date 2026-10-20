@@ -1,11 +1,16 @@
 {% extends "base.html" %}
+{% from "_icones.html" import icone %}
+{% import "_consulta.html" as c with context %}
 {% block conteudo %}
-{% set c = site.consultorio %}
+{% set c_ = site.consultorio %}
 <header class="cabeca-pagina">
   <div class="faixa">
     <p class="sobretitulo sobretitulo-claro">Informações administrativas</p>
     <h1>Consultório</h1>
-    <p class="cabeca-lead">Onde fica, como funciona e como pedir informações sobre o atendimento.</p>
+    <p class="cabeca-lead">Onde fica, como funciona a consulta e como agendar.</p>
+    <div class="acoes">
+      <a class="botao botao-primario" href="{{ whatsapp() }}" target="_blank" rel="noopener">{{ icone('conversa') }}<span>Agendar pelo WhatsApp</span></a>
+    </div>
   </div>
 </header>
 
@@ -14,29 +19,42 @@
     <dl class="fichas">
       <div class="ficha">
         <dt>Modalidade</dt>
-        <dd>{{ c.modalidade }}</dd>
+        <dd>{{ c_.modalidade }}</dd>
       </div>
       <div class="ficha">
         <dt>Dias</dt>
-        <dd>{{ c.dias }}</dd>
+        <dd>{{ c_.dias }}</dd>
       </div>
       <div class="ficha">
         <dt>Atendimento</dt>
-        <dd>{{ c.atendimento }}</dd>
+        <dd>{{ c_.atendimento }}, sem convênio</dd>
       </div>
       <div class="ficha ficha-larga">
         <dt>Local</dt>
-        <dd>{{ c.local }}<br>{{ c.endereco }}<br>{{ c.bairro_cidade }}
-          <a class="link-seta" href="{{ c.mapa }}" target="_blank" rel="noopener">Abrir a localização no Google Maps</a></dd>
+        <dd>{{ c_.local }}<br>{{ c_.endereco }}<br>{{ c_.bairro_cidade }}
+          <a class="link-seta" href="{{ c_.mapa }}" target="_blank" rel="noopener">Abrir a localização no Google Maps</a></dd>
       </div>
     </dl>
   </div>
 </section>
 
-<section class="secao secao-nevoa" aria-labelledby="t-espaco">
+{% if consulta_ok %}
+<section class="secao secao-nevoa" id="como-funciona" aria-labelledby="t-como">
   <div class="faixa">
     <div class="secao-cabeca">
-      <p class="sobretitulo">{{ c.local }} · sala 706</p>
+      <p class="sobretitulo">Na prática</p>
+      <h2 id="t-como">Como funciona a consulta</h2>
+    </div>
+    {{ c.passos() }}
+    {{ c.fatos(completo=False) }}
+  </div>
+</section>
+{% endif %}
+
+<section class="secao{% if not consulta_ok %} secao-nevoa{% endif %}" aria-labelledby="t-espaco">
+  <div class="faixa">
+    <div class="secao-cabeca">
+      <p class="sobretitulo">{{ c_.local }} · sala 706</p>
       <h2 id="t-espaco">O espaço</h2>
     </div>
     <div class="galeria">
@@ -49,36 +67,13 @@
 
 <div class="faixa pagina-corpo">
   <div class="prosa">
-    <h2>Como pedir informações</h2>
-    <p>Os horários disponíveis e o agendamento são informados pelo WhatsApp administrativo. Use esse canal para assuntos de agenda e logística; dúvidas sobre sintomas, diagnóstico ou medicamentos são tratadas na consulta.</p>
-
-    <h2>Antes da consulta</h2>
-    <p>Se você já tem exames, relatórios médicos ou receitas, leve-os no dia da consulta. Este site não recebe arquivos nem dados de saúde, e o primeiro contato pelo WhatsApp não precisa incluir informações clínicas.</p>
-
-    <h2>Dúvidas administrativas</h2>
-    <div class="perguntas">
-      <details>
-        <summary>O atendimento é particular?</summary>
-        <p>Sim. O atendimento no consultório é particular.</p>
-      </details>
-      <details>
-        <summary>Como sei os horários disponíveis?</summary>
-        <p>Pelo WhatsApp administrativo, indicado abaixo e na página Contato.</p>
-      </details>
-      <details>
-        <summary>Posso enviar exames antes da consulta?</summary>
-        <p>Leve-os no dia da consulta. Por segurança, este site não recebe arquivos, e o primeiro contato não precisa conter dados clínicos.</p>
-      </details>
-      <details>
-        <summary>O consultório atende urgências?</summary>
-        <p>Não. Em situação de risco imediato, procure um serviço de urgência ou ligue 192 (SAMU).</p>
-      </details>
-    </div>
+    <h2>Perguntas frequentes</h2>
+    {{ c.faq() }}
   </div>
   <aside class="caixa-lateral caixa-contato">
-    <p class="caixa-titulo">Pedir informações · WhatsApp</p>
+    <p class="caixa-titulo">Agendar · WhatsApp</p>
     <p class="caixa-numero">{{ site.contato.whatsapp_exibicao }}</p>
-    <a class="botao botao-primario botao-largo" href="{{ whatsapp() }}" target="_blank" rel="noopener">Abrir conversa no WhatsApp</a>
+    <a class="botao botao-primario botao-largo" href="{{ whatsapp() }}" target="_blank" rel="noopener">{{ icone('conversa') }}<span>Abrir conversa no WhatsApp</span></a>
     <p class="caixa-nota">Canal destinado a informações administrativas. Evite enviar dados clínicos neste primeiro contato. Não é um serviço de urgência.</p>
   </aside>
 </div>

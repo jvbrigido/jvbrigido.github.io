@@ -1,32 +1,106 @@
 {% extends "base.html" %}
 {% from "_cards.html" import card %}
+{% from "_icones.html" import icone %}
+{% import "_consulta.html" as c with context %}
+{% from "_temas.html" import temas_grid with context %}
 {% block conteudo %}
-<section class="abertura" aria-labelledby="t-abertura">
+{% set c_ = site.consultorio %}
+<section class="abertura abertura-pratica" aria-labelledby="t-abertura">
   <div class="faixa abertura-grade">
     <div class="abertura-texto">
-      <p class="sobretitulo sobretitulo-claro">Portal de conteúdo médico</p>
-      <h1 id="t-abertura">Saúde mental, dor e movimento: <em>informação para compreender melhor.</em></h1>
-      <p class="abertura-sub">Um espaço de conteúdo médico sobre psiquiatria e saúde mental, dor e ortopedia e traumatologia. Explicações claras para ampliar o entendimento e preparar conversas mais informadas sobre cuidado.</p>
-      <div class="acoes">
-        <a class="botao botao-primario" href="{{ u('/biblioteca/') }}">Explorar a biblioteca</a>
-        <a class="botao botao-contorno" href="{{ u('/sobre/') }}">Conhecer João Brígido</a>
-      </div>
-    </div>
-    <div class="abertura-arte">
-      {% if site.foto %}
-      <img class="abertura-foto" src="{{ u(site.foto) }}" alt="Retrato de João Brígido" width="640" height="800">
+      <p class="sobretitulo sobretitulo-claro">Consulta médica particular · Icaraí, Niterói</p>
+      {% if anuncio %}
+      <h1 id="t-abertura">Dor, sono, foco e emoções: <em>uma avaliação com tempo para ouvir você.</em></h1>
       {% else %}
-      {% include "_aneis.html" %}
+      <h1 id="t-abertura">Uma consulta com tempo para <em>ouvir a sua história.</em></h1>
       {% endif %}
+      <p class="abertura-sub">Atendimento presencial, com hora marcada, no {{ c_.local }}. O agendamento é feito pelo WhatsApp, sem precisar enviar dados clínicos.</p>
+      <div class="acoes">
+        <a class="botao botao-primario" href="{{ whatsapp() }}" target="_blank" rel="noopener">{{ icone('conversa') }}<span>Agendar pelo WhatsApp</span></a>
+        {% if consulta_ok %}
+        <a class="botao botao-contorno" href="#como-funciona">Como funciona a consulta</a>
+        {% else %}
+        <a class="botao botao-contorno" href="{{ u('/consultorio/') }}">Informações do consultório</a>
+        {% endif %}
+      </div>
+      <ul class="selos" aria-label="Em resumo">
+        <li>{{ site.profissao }} · {{ site.crm }}{% for r in site.rqe %} · RQE {{ r.numero }}{% endfor %}</li>
+        <li>{{ c_.atendimento }}</li>
+        <li>{{ c_.dias }}</li>
+        {% if consulta.duracao %}<li>Consulta de {{ consulta.duracao }}</li>{% endif %}
+      </ul>
     </div>
+    <figure class="abertura-moldura">
+      {% include "_aneis.html" %}
+      {% if site.foto %}
+      <img src="{{ u(site.foto) }}" alt="Retrato de João Brígido" width="640" height="800">
+      {% else %}
+      <img src="{{ u('/assets/img/consultorio-sala.jpg') }}" alt="Sala de atendimento do consultório, com parede branca em relevo de círculos e estante" width="800" height="1000">
+      {% endif %}
+      <figcaption>{{ c_.local }} · sala 706</figcaption>
+    </figure>
   </div>
 </section>
 
-<section class="secao" aria-labelledby="t-eixos">
+{% if temas %}
+<section class="secao" id="atendimento" aria-labelledby="t-temas">
+  <div class="faixa">
+    <div class="secao-cabeca secao-cabeca-linha">
+      <div>
+        <p class="sobretitulo">Consulta</p>
+        <h2 id="t-temas">Motivos frequentes de consulta</h2>
+      </div>
+      <p class="secao-nota">Não é uma lista completa. Se a sua dúvida não estiver aqui, pergunte pelo WhatsApp.</p>
+    </div>
+    {{ temas_grid(u) }}
+  </div>
+</section>
+{% endif %}
+
+{% if consulta_ok %}
+<section class="secao secao-nevoa" id="como-funciona" aria-labelledby="t-como">
   <div class="faixa">
     <div class="secao-cabeca">
-      <p class="sobretitulo">Biblioteca</p>
-      <h2 id="t-eixos">Três temas para explorar</h2>
+      <p class="sobretitulo">Na prática</p>
+      <h2 id="t-como">Como funciona a consulta</h2>
+    </div>
+    {{ c.passos() }}
+    {{ c.fatos() }}
+    <div class="acoes">
+      <a class="botao botao-primario" href="{{ whatsapp() }}" target="_blank" rel="noopener">{{ icone('conversa') }}<span>Agendar pelo WhatsApp</span></a>
+      <a class="link-seta" href="{{ u('/consultorio/') }}">Ver o consultório</a>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if trabalho_ok %}
+<section class="secao secao-tinta" aria-labelledby="t-trabalho">
+  <div class="faixa">
+    <div class="secao-cabeca">
+      <p class="sobretitulo sobretitulo-claro">Princípios</p>
+      <h2 id="t-trabalho">Como eu trabalho</h2>
+    </div>
+    <ul class="principios">
+      {% for p in site.como_trabalho.itens %}
+      <li><h3>{{ p.titulo }}</h3><p>{{ p.texto }}</p></li>
+      {% endfor %}
+    </ul>
+    {% if revisao and not site.como_trabalho.aprovado %}
+    <p class="pendente">Rascunho em primeira pessoa: só vai ao site público com o seu "aprovo".</p>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+
+<section class="secao" aria-labelledby="t-eixos">
+  <div class="faixa">
+    <div class="secao-cabeca secao-cabeca-linha">
+      <div>
+        <p class="sobretitulo">Biblioteca</p>
+        <h2 id="t-eixos">Para entender antes da consulta</h2>
+      </div>
+      <a class="link-seta" href="{{ u('/biblioteca/') }}">Abrir a biblioteca</a>
     </div>
     <div class="eixos">
       {% for e in eixos %}
@@ -38,62 +112,70 @@
       </article>
       {% endfor %}
     </div>
-  </div>
-</section>
-
-{% if comece %}
-<section class="secao secao-nevoa" aria-labelledby="t-comece">
-  <div class="faixa">
-    <div class="secao-cabeca">
-      <p class="sobretitulo">Leitura inicial</p>
-      <h2 id="t-comece">Comece por aqui</h2>
-    </div>
+    {% if comece %}
+    <h3 class="lista-titulo lista-titulo-espaco">Comece por aqui</h3>
     <div class="grade-cards">
       {% for a in comece %}{{ card(a, u) }}{% endfor %}
     </div>
+    {% endif %}
   </div>
 </section>
-{% endif %}
 
-<section class="secao" aria-labelledby="t-autor">
+<section class="secao secao-linha" aria-labelledby="t-autor">
   <div class="faixa apresentacao">
     <div class="apresentacao-texto">
-      <p class="sobretitulo" id="t-autor">Quem escreve</p>
-      <p class="apresentacao-frase">Sou João Brígido, médico. Este portal reúne conteúdos que preparo para tornar assuntos médicos mais compreensíveis e ajudar o leitor a formular perguntas melhores sobre sua saúde.</p>
+      <p class="sobretitulo" id="t-autor">Quem atende</p>
+      <p class="apresentacao-frase">Sou João Brígido, médico. Atendo em consultório em Icaraí, Niterói, e preparo os conteúdos deste portal para tornar assuntos médicos mais compreensíveis.</p>
       <a class="link-seta" href="{{ u('/sobre/') }}">Conhecer João Brígido</a>
     </div>
     <dl class="apresentacao-id">
       <div><dt>Nome</dt><dd>{{ site.nome_completo }}</dd></div>
-      <div><dt>Registro</dt><dd>{{ site.profissao }} · {{ site.crm }}</dd></div>
-      <div><dt>Consultório</dt><dd>{{ site.consultorio.bairro_cidade }}</dd></div>
+      <div><dt>Registro</dt><dd>{{ site.profissao }} · {{ site.crm }}{% for r in site.rqe %} · RQE {{ r.numero }} ({{ r.titulo }}){% endfor %}</dd></div>
+      <div><dt>Consultório</dt><dd>{{ c_.bairro_cidade }}</dd></div>
     </dl>
   </div>
 </section>
 
-{% if recentes %}
-<section class="secao secao-linha" aria-labelledby="t-recentes">
-  <div class="faixa">
-    <div class="secao-cabeca secao-cabeca-linha">
-      <div>
-        <p class="sobretitulo">Biblioteca</p>
-        <h2 id="t-recentes">Leituras recentes</h2>
-      </div>
-      <a class="link-seta" href="{{ u('/biblioteca/') }}">Ver a biblioteca completa</a>
+<section class="secao secao-nevoa" id="onde" aria-labelledby="t-onde">
+  <div class="faixa onde-grade">
+    <div class="onde-texto">
+      <p class="sobretitulo">Onde fica o consultório</p>
+      <h2 id="t-onde">{{ c_.local }}</h2>
+      <p class="onde-endereco">{{ c_.endereco }}<br>{{ c_.bairro_cidade }}</p>
+      <dl class="onde-dados">
+        <div><dt>Dias</dt><dd>{{ c_.dias }}</dd></div>
+        <div><dt>Atendimento</dt><dd>{{ c_.modalidade }}, {{ c_.atendimento|lower }}</dd></div>
+      </dl>
+      <p class="onde-links">
+        <a class="link-seta" href="{{ c_.mapa }}" target="_blank" rel="noopener">Abrir no Google Maps</a>
+        <a class="link-seta" href="{{ u('/consultorio/') }}">Ver fotos do consultório</a>
+      </p>
     </div>
-    <div class="grade-cards">
-      {% for a in recentes %}{{ card(a, u) }}{% endfor %}
+    <div class="onde-fotos">
+      <img src="{{ u('/assets/img/consultorio-recepcao.jpg') }}" width="800" height="1000" loading="lazy" alt="Recepção do consultório, com banco estofado e arandelas">
+      <img src="{{ u('/assets/img/consultorio-cafe.jpg') }}" width="800" height="1000" loading="lazy" alt="Cantinho do café, com cafeteira, xícaras e frigobar">
     </div>
   </div>
 </section>
-{% endif %}
 
-<section class="atendimento" aria-labelledby="t-atendimento">
-  <div class="faixa atendimento-linha">
-    <div>
-      <h2 id="t-atendimento" class="atendimento-titulo">Informações sobre atendimento</h2>
-      <p>Para conhecer as informações administrativas sobre atendimento, consulte a página Consultório.</p>
+<section class="secao" id="duvidas" aria-labelledby="t-faq">
+  <div class="faixa faq-grade">
+    <div class="secao-cabeca">
+      <p class="sobretitulo">Dúvidas</p>
+      <h2 id="t-faq">Perguntas frequentes</h2>
+      <p class="secao-nota">Outra dúvida sobre agenda, valores ou localização? Pergunte pelo WhatsApp administrativo.</p>
     </div>
-    <a class="botao botao-contorno-escuro" href="{{ u('/consultorio/') }}">Ver informações do consultório</a>
+    {{ c.faq() }}
+  </div>
+</section>
+
+<section class="cta-final" aria-labelledby="t-cta">
+  <div class="faixa cta-grade">
+    <div>
+      <h2 id="t-cta">Quer marcar uma consulta?</h2>
+      <p>O agendamento é feito pelo WhatsApp {{ site.contato.whatsapp_exibicao }}. É um canal administrativo: evite enviar dados clínicos. Não é serviço de urgência.</p>
+    </div>
+    <a class="botao botao-claro" href="{{ whatsapp() }}" target="_blank" rel="noopener">{{ icone('conversa') }}<span>Agendar pelo WhatsApp</span></a>
   </div>
 </section>
 {% endblock %}
