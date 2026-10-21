@@ -33,12 +33,13 @@
     </div>
     <figure class="abertura-moldura">
       {% include "_aneis.html" %}
-      {% if site.foto %}
-      <img src="{{ u(site.foto) }}" alt="Retrato de João Brígido" width="640" height="800">
+      {% if retrato %}
+      <img class="retrato" src="{{ u(retrato) }}" alt="{{ sobre.retrato_alt or 'Retrato de João Brígido' }}" width="800" height="1000">
+      <figcaption>{{ site.nome_publico }} · {{ site.profissao }}</figcaption>
       {% else %}
       <img src="{{ u('/assets/img/consultorio-sala.jpg') }}" alt="Sala de atendimento do consultório, com parede branca em relevo de círculos e estante" width="800" height="1000">
-      {% endif %}
       <figcaption>{{ c_.local }} · sala 706</figcaption>
+      {% endif %}
     </figure>
   </div>
 </section>

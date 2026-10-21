@@ -77,6 +77,10 @@ main:focus { outline: none; }
 .pendente { border: 1.5px dashed var(--aviso-linha); background: var(--aviso-fundo); color: var(--aviso-texto); border-radius: 10px; padding: 12px 14px; font-size: 15px; }
 .selo-rascunho { display: inline-block; background: var(--rascunho-fundo); color: var(--rascunho-texto); border-radius: 999px; padding: 3px 10px; font-size: 12.5px; font-weight: 700; letter-spacing: .02em; }
 .sobre-lista li { margin-bottom: 10px; }
+.sobre-figura { margin: 22px 0 8px; }
+.sobre-figura img { display: block; width: 100%; height: auto; border-radius: 14px; background: var(--nevoa); }
+.sobre-figura-vertical { max-width: 360px; }
+.sobre-figura figcaption { margin-top: 8px; font-size: 14px; color: var(--texto-2); }
 .sobre-nota { display: block; margin-top: 2px; font-size: 15px; color: var(--texto-2); }
 .selo-estoque { display: inline-block; background: #E6F4EC; color: #155C36; border-radius: 999px; padding: 3px 10px; font-size: 12.5px; font-weight: 700; letter-spacing: .02em; }
 
@@ -380,6 +384,7 @@ sup.ref a { text-decoration: none; font-weight: 700; padding: 0 1px; color: var(
   .abertura-moldura { justify-items: stretch; }
   .abertura-moldura .aneis { display: none; }
   .abertura-moldura img { width: 100%; aspect-ratio: 16 / 10; object-position: 50% 40%; border-radius: 18px; }
+  .abertura-moldura img.retrato { aspect-ratio: 1 / 1; object-position: 50% 8%; }
   .abertura-moldura figcaption { left: 14px; bottom: 14px; transform: none; }
 }
 

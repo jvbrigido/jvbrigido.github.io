@@ -83,6 +83,7 @@ class Portal:
         for e in self.eixos:
             e["url"] = f"/biblioteca/{e['slug']}/"
         self.eixo_por_slug = {e["slug"]: e for e in self.eixos}
+        self.rascunhos_dir = Path(rascunhos_dir) if rascunhos_dir else None
         self.artigos = self.carregar_artigos([FONTE / "artigos"] + ([Path(rascunhos_dir)] if rascunhos_dir else []))
         self.paginas_geradas = []
         self.preparar_consulta()
@@ -193,7 +194,8 @@ class Portal:
             esqueleto_artifact=self.revisao and caminho == "index.html", caminho=caminho,
             temas=self.temas, anuncio=self.anuncio, consulta=self.site["consulta"],
             consulta_ok=self.consulta_ok, trabalho_ok=self.trabalho_ok,
-            sobre=self.site.get("sobre", {}), sobre_ok=self.sobre_ok, **ctx)
+            sobre=self.site.get("sobre", {}), sobre_ok=self.sobre_ok,
+            retrato=self.site.get("foto") or (self.sobre_ok and self.site.get("sobre", {}).get("retrato")) or "", **ctx)
         destino = self.saida / caminho
         destino.parent.mkdir(parents=True, exist_ok=True)
         destino.write_text(html, encoding="utf-8")
@@ -255,6 +257,11 @@ class Portal:
         if destino.exists():
             shutil.rmtree(destino)
         shutil.copytree(FONTE / "assets", destino)
+        # fotos ainda não aprovadas ficam fora do repositório público, na pasta de rascunhos (img/), e só entram na revisão
+        if self.revisao and self.rascunhos_dir and (self.rascunhos_dir / "img").is_dir():
+            for f in (self.rascunhos_dir / "img").iterdir():
+                if f.is_file():
+                    shutil.copy2(f, destino / "img" / f.name)
 
     def mapa_e_robots(self):
         urls = [self.site["url"] + "/" + p[:-len("index.html")] for p in self.paginas_geradas if p.endswith("index.html")]

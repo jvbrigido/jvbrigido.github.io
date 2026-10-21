@@ -87,10 +87,17 @@ sobre:
     - "Apresentação “Controle da dor: analgesia preventiva funciona?”, em simpósio (2020)."
     - "Dois pôsteres sobre autópsia psicológica no VI Congresso Brasileiro de Prevenção do Suicídio (2026)."
     - "Quatro artigos em periódicos científicos (2015 e 2016) e dezesseis resumos em anais de congressos (2012 a 2021)."
+  # Fotos (enviadas pelo João em 20/10/2026, 21h08). Até o aprovo, os arquivos ficam fora do repositório
+  # (portal-rascunhos/img) e só aparecem na revisão. No aprovo: copiar para fonte/assets/img e pôr o retrato em "foto".
+  retrato: "/assets/img/retrato-joao.jpg"
+  retrato_alt: "Retrato de João Brígido, de óculos e camiseta preta, sobre fundo escuro"
+  fotos:
+    pesquisa: {src: "/assets/img/sbot-2022.jpg", largura: 1200, altura: 900, alt: "João Brígido no púlpito do 54º Congresso Anual da SBOT, em Florianópolis, diante do telão com seu nome", legenda: "Apresentação no 54º Congresso Anual da SBOT, em Florianópolis (2022)."}
+    ensino: {src: "/assets/img/aula-2026.jpg", largura: 576, altura: 720, alt: "João Brígido em pé, de blazer escuro, explicando com as mãos durante uma aula", legenda: "Em aula, em 2026."}
   lattes: "http://lattes.cnpq.br/7109917983988548"
   lattes_ok: false   # o Lattes está parado em 02/2023 (sem a residência de Psiquiatria e com o mestrado "em andamento"); linkar só depois de atualizado
   pendencias:
-    - "Retrato aprovado para o topo da página."
+    - "Aprovar o retrato e as duas fotos escolhidas (aula de 2026 e 54º Congresso da SBOT)."
     - "Ano da defesa do mestrado (está no certificado)."
     - "Atualizar o Lattes (parado em 02/2023) para o link entrar na página."
     - "Aprovar o texto em primeira pessoa e a lista de formação."

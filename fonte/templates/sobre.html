@@ -12,8 +12,8 @@
       <p class="cabeca-lead">Sou João Brígido, médico. Este portal reúne conteúdos que preparo para tornar assuntos médicos mais compreensíveis e ajudar o leitor a formular perguntas melhores sobre sua saúde.</p>
       {% endif %}
     </div>
-    {% if site.foto %}
-    <img class="sobre-foto" src="{{ u(site.foto) }}" alt="Retrato de João Brígido" width="480" height="600">
+    {% if retrato %}
+    <img class="sobre-foto" src="{{ u(retrato) }}" alt="{{ sobre.retrato_alt or 'Retrato de João Brígido' }}" width="480" height="600">
     {% elif revisao %}
     <div class="sobre-foto sobre-foto-pendente" role="img" aria-label="Espaço reservado para o retrato">Retrato<br>[A CONFIRMAR]</div>
     {% endif %}
@@ -46,17 +46,14 @@
     {% if sobre.pesquisa %}
     <h2>Pesquisa e apresentações</h2>
     <ul class="sobre-lista">{% for x in sobre.pesquisa %}<li>{{ x }}</li>{% endfor %}</ul>
+    {% if sobre.fotos and sobre.fotos.pesquisa %}{% set f = sobre.fotos.pesquisa %}
+    <figure class="sobre-figura"><img src="{{ u(f.src) }}" alt="{{ f.alt }}" width="{{ f.largura }}" height="{{ f.altura }}" loading="lazy"><figcaption>{{ f.legenda }}</figcaption></figure>
+    {% endif %}
     {% endif %}
     {% if sobre.lattes and sobre.lattes_ok %}
     <p>A lista completa está no <a href="{{ sobre.lattes }}">Currículo Lattes</a>.</p>
     {% elif revisao and sobre.lattes %}
     <p class="pendente">[A CONFIRMAR] O link para o Currículo Lattes entra quando o Lattes for atualizado. Hoje ele está parado em 02/2023, sem a residência de Psiquiatria e com o mestrado "em andamento".</p>
-    {% endif %}
-    {% if revisao and sobre.pendencias and not sobre.aprovado %}
-    <div class="pendente">
-      <p><strong>Para esta página ir ao site público</strong></p>
-      <ul>{% for p in sobre.pendencias %}<li>{{ p }}</li>{% endfor %}</ul>
-    </div>
     {% endif %}
     {% elif site.formacao %}
     <h2>Formação</h2>
@@ -68,6 +65,9 @@
     <h2>Ensino</h2>
     {% if sobre_ok and sobre.ensino %}
     <p>{{ sobre.ensino }}</p>
+    {% if sobre.fotos and sobre.fotos.ensino %}{% set f = sobre.fotos.ensino %}
+    <figure class="sobre-figura sobre-figura-vertical"><img src="{{ u(f.src) }}" alt="{{ f.alt }}" width="{{ f.largura }}" height="{{ f.altura }}" loading="lazy"><figcaption>{{ f.legenda }}</figcaption></figure>
+    {% endif %}
     {% else %}
     <p>Também preparo aulas e materiais didáticos para estudantes e médicos, com a mesma preocupação que orienta este portal: transformar assunto difícil em explicação compreensível.</p>
     {% endif %}
@@ -76,6 +76,12 @@
     <p>Nasci em Fortaleza, no Ceará, e vivo em Niterói, onde atendo em consultório.</p>
 
 
+    {% if revisao and sobre.pendencias and not sobre.aprovado %}
+    <div class="pendente">
+      <p><strong>Para esta página ir ao site público</strong></p>
+      <ul>{% for p in sobre.pendencias %}<li>{{ p }}</li>{% endfor %}</ul>
+    </div>
+    {% endif %}
     <p class="sobre-fecho">O objetivo deste portal é compartilhar informação médica com clareza, indicar os limites do conhecimento disponível e facilitar o acesso às informações sobre meu trabalho.</p>
   </div>
   <aside class="caixa-lateral">
