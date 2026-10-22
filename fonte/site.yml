@@ -15,7 +15,7 @@ rqe:            # só RQE conferido. Psiquiatria: residência (R3), RQE previsto
   - {titulo: "Ortopedia e Traumatologia", numero: "34510"}   # certidão do CREMERJ nº 6342/2025, de 17/01/2025
 formacao: []     # só itens documentados. Exemplo: ["Medicina — Instituição, ano de conclusão"]
 rqe_psiquiatria_previsto: "março de 2027"
-foto: ""         # retrato aprovado, ex.: "/assets/img/joao-brigido.jpg"
+foto: "/assets/img/retrato-joao.jpg"   # retrato aprovado pelo João em 21/10/2026 (foto de estúdio, camiseta preta e óculos)
 
 aviso_educativo: "Este conteúdo tem finalidade educativa e não substitui uma avaliação individual. O site não realiza diagnóstico, prescrição ou atendimento de urgência."
 
@@ -37,24 +37,24 @@ consultorio:
 # Como funciona a consulta (pedido do João em 20/10/2026, inspirado no site de referência).
 # Dados confirmados pelo João em 20/10/2026, 15h08: 50 minutos; valor informado pelo WhatsApp; recibo para
 # reembolso; atendimento on-line (ponto forte); atende crianças. Não falar em retorno (pedido dele).
-# Os passos e os textos em primeira pessoa só vão ao site público com "aprovado: true".
+# Os passos e os textos em primeira pessoa só vão ao site público com "aprovado: true" (aprovados pelo João em 21/10/2026).
 consulta:
-  aprovado: false
+  aprovado: true
   passos:
     - titulo: "Agendamento"
       texto: "Pelo WhatsApp administrativo, você escolhe um horário disponível, no consultório ou on-line. Não é preciso enviar exames nem dados clínicos nesse primeiro contato."
     - titulo: "A consulta"
-      texto: "A conversa começa pela sua história: o que trouxe você, desde quando, o que já foi tentado e como estão o sono, o humor e a rotina. Depois vêm o exame, as hipóteses e as opções de cuidado."
+      texto: "A conversa começa pela sua história: o que trouxe você à consulta, desde quando, o que já foi tentado e como estão o sono, o humor e a rotina. Depois vêm o exame, as hipóteses e as opções de cuidado."
     - titulo: "Depois da consulta"
       texto: "O próximo passo é combinado com você: exames, um tratamento ou o encaminhamento a outro profissional, sempre com a explicação do porquê."
   duracao: "50 minutos"
   valores: "Informados pelo WhatsApp"   # o João prefere informar o valor pelo WhatsApp (não publicar no site)
   reembolso: "Recibo para pedir reembolso ao plano de saúde"
   online: "Também on-line, por vídeo"
-  criancas: "Sim. Crianças e adolescentes são atendidos sempre com um responsável."
+  criancas: "Sim, sempre acompanhados de um responsável."
 
 como_trabalho:
-  aprovado: false
+  aprovado: true   # aprovado pelo João em 21/10/2026
   itens:
     - titulo: "A história vem antes do rótulo"
       texto: "Um diagnóstico depende de contexto, de tempo e de conversa. Às vezes, ele precisa de mais de um encontro."
@@ -64,13 +64,13 @@ como_trabalho:
       texto: "Cada decisão é explicada: exames, psicoterapia, outros profissionais e, quando necessário, medicamentos. O plano também é seu."
 
 # Página Sobre com o currículo (Doc "Currículo · João Brígido (base Lattes)", 00 - Base Compartilhada, v1.1 de 20/10/2026).
-# Só vai ao site público com o "aprovo" do João; até lá, o site mostra a versão curta, sem formação.
+# Aprovada pelo João em 21/10/2026 ("Autorizado"), com o retrato e as duas fotos. Faltam o ano da defesa do mestrado e o Lattes atualizado.
 # Regras do Guia Mestre (cap. Sobre): primeira pessoa na apresentação; dados acadêmicos em formulação objetiva;
 # formação em andamento descrita como tal; nada de "referência", "excelência" ou credencial estimada.
 sobre:
-  aprovado: false
-  apresentacao: "Sou João Brígido, médico especialista em Ortopedia e Traumatologia, com formação em cirurgia do pé e tornozelo e mestrado com pesquisa sobre a dor depois da cirurgia. Hoje faço o terceiro ano da residência em Psiquiatria. Este portal reúne conteúdos que preparo para tornar assuntos médicos mais compreensíveis e ajudar o leitor a formular perguntas melhores sobre sua saúde."
-  ensino: "Ensino desde 2020 em cursos preparatórios de ortopedia e para o Revalida e, desde 2022, de Medicina Preventiva para provas de residência médica. Também escrevo manuais e apostilas para esses cursos, com a mesma preocupação que orienta este portal: transformar assunto difícil em explicação compreensível."
+  aprovado: true
+  apresentacao: "Sou João Brígido, médico especialista em Ortopedia e Traumatologia, com formação em cirurgia do pé e tornozelo e mestrado com pesquisa sobre a dor depois da cirurgia. Hoje curso o terceiro ano da residência médica em Psiquiatria, com término previsto para março de 2027. Este portal reúne conteúdos que preparo para tornar assuntos médicos mais compreensíveis e ajudar o leitor a formular perguntas melhores sobre a própria saúde."
+  ensino: "Desde 2020, dou aulas em cursos preparatórios de ortopedia e para o Revalida; desde 2022, também de Medicina Preventiva, em cursos para provas de residência médica. Também escrevo manuais e apostilas para esses cursos, com a mesma preocupação que orienta este portal: transformar assunto difícil em explicação compreensível."
   formacao:
     - {titulo: "Graduação em Medicina", local: "Universidade Federal da Paraíba (UFPB)", periodo: "2011 a 2016"}
     - {titulo: "Residência médica em Ortopedia e Traumatologia", local: "Instituto Nacional de Traumatologia e Ortopedia (INTO)", periodo: "2017 a 2020"}
@@ -87,8 +87,7 @@ sobre:
     - "Apresentação “Controle da dor: analgesia preventiva funciona?”, em simpósio (2020)."
     - "Dois pôsteres sobre autópsia psicológica no VI Congresso Brasileiro de Prevenção do Suicídio (2026)."
     - "Quatro artigos em periódicos científicos (2015 e 2016) e dezesseis resumos em anais de congressos (2012 a 2021)."
-  # Fotos (enviadas pelo João em 20/10/2026, 21h08). Até o aprovo, os arquivos ficam fora do repositório
-  # (portal-rascunhos/img) e só aparecem na revisão. No aprovo: copiar para fonte/assets/img e pôr o retrato em "foto".
+  # Fotos enviadas pelo João em 20/10/2026 (21h08) e aprovadas em 21/10/2026; recortes em fonte/assets/img.
   retrato: "/assets/img/retrato-joao.jpg"
   retrato_alt: "Retrato de João Brígido, de óculos e camiseta preta, sobre fundo escuro"
   fotos:
@@ -97,10 +96,8 @@ sobre:
   lattes: "http://lattes.cnpq.br/7109917983988548"
   lattes_ok: false   # o Lattes está parado em 02/2023 (sem a residência de Psiquiatria e com o mestrado "em andamento"); linkar só depois de atualizado
   pendencias:
-    - "Aprovar o retrato e as duas fotos escolhidas (aula de 2026 e 54º Congresso da SBOT)."
     - "Ano da defesa do mestrado (está no certificado)."
     - "Atualizar o Lattes (parado em 02/2023) para o link entrar na página."
-    - "Aprovar o texto em primeira pessoa e a lista de formação."
 
 # Motivos frequentes de consulta (o "anúncio" da página inicial, pedido em 20/10/2026).
 # Res. CFM 2.336/2023, art. 11, I: quem não é especialista não pode divulgar que trata doenças específicas.
@@ -186,11 +183,10 @@ eixos:
 
 # Aparecem só no ambiente de revisão (Guia Mestre, cap. 30). Nunca no site público.
 pendencias:
-  - "Retrato do João (foto autoral aprovada) para a abertura e para a página Sobre."
-  - "Página Sobre com o currículo (apresentação, formação, sociedades e pesquisa): aprovar no protótipo; faltam o ano da defesa do mestrado e o Lattes atualizado."
-  - "Aprovação dos seis artigos de lançamento e dos textos institucionais."
+  - "Página Sobre: ano da defesa do mestrado (está no certificado) e Lattes atualizado (parado em 02/2023) para o link entrar."
+  - "Horário da quinta à tarde no consultório (volta em novembro, com a escala do mês)."
   - "E-mail administrativo e responsável pelo canal de privacidade (hoje: WhatsApp)."
   - "Domínio drjoaobrigido.com.br: aguardando o registro no Registro.br."
   - "RQE de Psiquiatria: previsto para março de 2027 (residência, R3). Até lá, o site não apresenta o João como psiquiatra nem anuncia temas de psiquiatria."
-  - "Aprovar os textos de Como funciona a consulta e Como eu trabalho (primeira pessoa)."
   - "Motivos frequentes de consulta: só vão ao site público com o RQE correspondente (Res. CFM 2.336/2023, art. 11, I)."
+  - "Lançamento: tirar o noindex (lancado: true) quando o João autorizar; até lá o site fica fora do Google."

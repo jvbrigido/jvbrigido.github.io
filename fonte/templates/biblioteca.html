@@ -20,7 +20,7 @@
       <p class="eixo-numero" aria-hidden="true">{{ e.numero }}</p>
       <h2 id="t-{{ e.slug }}">{{ e.nome }}</h2>
       <p>{{ e.card }}</p>
-      {% if lista %}<a class="link-seta" href="{{ u(e.url) }}">Abrir a coleção de {{ e.curto }}</a>{% endif %}
+      {% if lista %}<a class="link-seta" href="{{ u(e.url) }}">Abrir a coleção de {{ e.curto }}{% if lista|length > 4 %} ({{ lista|length }} textos){% endif %}</a>{% endif %}
     </div>
     <div class="tema-lista">
       {% if lista %}

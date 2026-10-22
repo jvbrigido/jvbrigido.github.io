@@ -9,7 +9,7 @@
       {% if sobre_ok and sobre.apresentacao %}
       <p class="cabeca-lead">{{ sobre.apresentacao }}</p>
       {% else %}
-      <p class="cabeca-lead">Sou João Brígido, médico. Este portal reúne conteúdos que preparo para tornar assuntos médicos mais compreensíveis e ajudar o leitor a formular perguntas melhores sobre sua saúde.</p>
+      <p class="cabeca-lead">Sou João Brígido, médico. Este portal reúne conteúdos que preparo para tornar assuntos médicos mais compreensíveis e ajudar o leitor a formular perguntas melhores sobre a própria saúde.</p>
       {% endif %}
     </div>
     {% if retrato %}
@@ -76,9 +76,9 @@
     <p>Nasci em Fortaleza, no Ceará, e vivo em Niterói, onde atendo em consultório.</p>
 
 
-    {% if revisao and sobre.pendencias and not sobre.aprovado %}
+    {% if revisao and sobre.pendencias %}
     <div class="pendente">
-      <p><strong>Para esta página ir ao site público</strong></p>
+      <p><strong>Pendências desta página</strong></p>
       <ul>{% for p in sobre.pendencias %}<li>{{ p }}</li>{% endfor %}</ul>
     </div>
     {% endif %}

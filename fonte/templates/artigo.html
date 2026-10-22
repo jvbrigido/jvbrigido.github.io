@@ -51,7 +51,7 @@
         <ol>
           {% for r in a.referencias %}
           <li id="ref-{{ loop.index }}">
-            {% if r.url %}<a href="{{ r.url }}" target="_blank" rel="noopener">{{ r.titulo }}</a>{% else %}{{ r.titulo }}{% endif %}.
+            {% if r.url %}<a href="{{ r.url }}" target="_blank" rel="noopener">{{ r.titulo }}</a>{% else %}{{ r.titulo }}{% endif %}{% if not r.titulo.endswith(('?', '!', '.')) %}.{% endif %}
             {{ r.detalhe }}
             {% if r.sustenta %}<span class="ref-uso">Sustenta: {{ r.sustenta }}</span>{% endif %}
           </li>

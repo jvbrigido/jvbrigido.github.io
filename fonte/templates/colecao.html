@@ -29,7 +29,7 @@
       {% set resto = itens %}
       {% endif %}
       {% if resto %}
-      <h2 class="lista-titulo">Todos os textos</h2>
+      <h2 class="lista-titulo">Mais textos</h2>
       <div class="grade-cards">
         {% for a in resto %}{{ card(a, u, mostrar_eixo=False) }}{% endfor %}
       </div>
