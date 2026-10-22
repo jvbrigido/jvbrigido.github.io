@@ -2,8 +2,8 @@
 # Tudo o que aparece em mais de uma página mora aqui. Dado não conferido não entra:
 # fica em "pendencias" (só aparece no ambiente de revisão) e nunca no site público.
 
-lancado: false            # false = páginas com noindex (pré-lançamento). Vira true só com aprovação do João.
-url: "https://jvbrigido.github.io"   # trocar para "https://drjoaobrigido.com.br" quando o domínio estiver ativo (junto com o arquivo CNAME)
+lancado: true             # true desde 22/10/2026: lançamento aprovado pelo João, junto com o domínio no ar (false = páginas com noindex).
+url: "https://drjoaobrigido.com.br"
 ano: 2026
 fontes_consultadas_em: "20 de outubro de 2026"
 
